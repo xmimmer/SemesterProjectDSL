@@ -1,0 +1,15 @@
+grammar org.xtext.example.mydsl.Semester_Project_Dsl with org.eclipse.xtext.common.Terminals
+
+generate semester_Project_Dsl "http://www.xtext.org/example/mydsl/Semester_Project_Dsl"
+
+Model:
+	'Program' name=ID variables+=Variable* sensors+=Sensor*;
+	
+
+Variable:
+	'var' name=ID
+;
+
+Sensor:
+	'CO2' name=ID | 'CO' name=ID
+;
