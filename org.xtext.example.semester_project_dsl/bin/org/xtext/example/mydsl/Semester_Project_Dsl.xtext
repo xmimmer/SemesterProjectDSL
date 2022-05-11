@@ -3,7 +3,7 @@ grammar org.xtext.example.mydsl.Semester_Project_Dsl with org.eclipse.xtext.comm
 generate semester_Project_Dsl "http://www.xtext.org/example/mydsl/Semester_Project_Dsl"
 
 Model:
-	'Program' name=ID variables+=Variable* sensors+=Sensor*;
+	'Program' name=ID variables+=Variable* sensors+=Sensor* credentials+=Credentials*; 
 	
 
 Variable:
@@ -11,5 +11,22 @@ Variable:
 ;
 
 Sensor:
-	'CO2' name=ID | 'CO' name=ID
+	'sensor' name=ID',' pin=INT
 ;
+
+Credentials:
+	SSID | Password | IP
+;
+
+SSID:
+	'ssid' name=ID
+;
+
+Password:
+	'password' name=ID
+;
+
+IP:
+	'ip' name=STRING
+;
+

@@ -8,6 +8,10 @@ import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
 import org.xtext.example.mydsl.semester_Project_Dsl.Model
+import org.xtext.example.mydsl.semester_Project_Dsl.Credentials
+import org.xtext.example.mydsl.semester_Project_Dsl.Password
+import org.xtext.example.mydsl.semester_Project_Dsl.SSID
+import org.xtext.example.mydsl.semester_Project_Dsl.IP
 
 /**
  * Generates code from your model files on save.
@@ -19,33 +23,152 @@ class Semester_Project_DslGenerator extends AbstractGenerator {
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 		val model = resource.allContents.filter(Model).next
 		fsa.generateFile('test.ino', model.compile)
-}
-		
-		def CharSequence compile(Model m) '''
-		#include <Arduino.h>
-		#include <SensirionI2CScd4x.h>
-		#include <Wire.h>
-		
-		SensirionI2CScd4x scd4x;
-		
-		«FOR e: m.variables»
-		 Variable name = «e.name»;
-		«ENDFOR»
-		«FOR e: m.sensors»
-		int «e.name»;
-	    «ENDFOR»
-		
-		void setup() {
+	}
+
+	def CharSequence compile(Model m) '''
+			#include <WiFi.h>
+			#include <PubSubClient.h>
+			#include <Wire.h>
+			#include <Arduino.h>
+			#include <U8g2lib.h>
 			
-		}
-		void loop() {
-			
-		}
+			// Replace the next variables with your SSID/Password combination
+			«FOR c : m.credentials SEPARATOR '\n'»«c.generateCredentials()»;«ENDFOR»
 		
+			WiFiClient espClient;
+			PubSubClient client(espClient);
+			long lastMsg = 0;
+			char msg[50];
+			int value = 0;
+			«FOR s : m.sensors SEPARATOR '\n'»const int «s.name»Pin = «s.pin.toString()»;«ENDFOR»
+		
+			// starting value for potentiometer
+			«FOR s : m.sensors SEPARATOR '\n'»int «s.name»Value = 0;«ENDFOR»
+			
+			«FOR s : m.sensors SEPARATOR '\n'»String «s.name»String = "«s.name»: "«ENDFOR»;
+			
+			«FOR s : m.sensors SEPARATOR '\n'»String «s.name»PrintString = "";«ENDFOR»
+		
+			U8G2_SSD1306_128X64_NONAME_F_HW_I2C u8g2(U8G2_R0, /* clock=*/ SCL, /* data=*/ SDA, /* reset=*/ U8X8_PIN_NONE);  // High speed I2C
+		 
+			void setup() {
+			  Serial.begin(115200);
+			
+			  u8g2.begin();
+			  u8g2.setFontPosTop();
+			  u8g2.setFont(u8g2_font_ncenB10_tr);
+			  
+			  setup_wifi();
+			  client.setServer(mqtt_server, 1883);
+			  client.setCallback(callback);
+			}
+			
+			void setup_wifi() {
+			  delay(10);
+			  // We start by connecting to a WiFi network
+			  Serial.println();
+			  Serial.print("Connecting to ");
+			  Serial.println(ssid);
+			
+			  WiFi.begin(ssid, password);
+			
+			  while (WiFi.status() != WL_CONNECTED) {
+			    delay(500);
+			    Serial.print(".");
+			  }
+			
+			  Serial.println("");
+			  Serial.println("WiFi connected");
+			  Serial.println("IP address: ");
+			  Serial.println(WiFi.localIP());
+			}
+			
+			void callback(char* topic, byte* message, unsigned int length) {
+			  Serial.print("Message arrived on topic: ");
+			  Serial.print(topic);
+			  Serial.print(". Message: ");
+			  String messageTemp;
+			  
+			  for (int i = 0; i < length; i++) {
+			    Serial.print((char)message[i]);
+			    messageTemp += (char)message[i];
+			  }
+			  Serial.println();
+			
+			}
+			
+			void reconnect() {
+			  // Loop until we're reconnected
+			  while (!client.connected()) {
+			    Serial.print("Attempting MQTT connection...");
+			    // Attempt to connect
+			    if (client.connect("ESP8266Client")) {
+			      Serial.println("connected");
+			      // Subscribe
+			      client.subscribe("esp32/output");
+			    } else {
+			      Serial.print("failed, rc=");
+			      Serial.print(client.state());
+			      Serial.println(" try again in 5 seconds");
+			      // Wait 5 seconds before retrying
+			      delay(5000);
+			    }
+			  }
+			}
+			
+			void loop() {
+			  if (!client.connected()) {
+			    reconnect();
+			  }
+			  client.loop();
+			
+			  long now = millis();
+			  if (now - lastMsg > 1000) {
+			    lastMsg = now;
+			
+			
+				«FOR s : m.sensors SEPARATOR '\n'»«s.name»Value = analogRead(«s.name»Pin);«ENDFOR»
+		
+		   // Convert the value to a char array
+		   «FOR s : m.sensors SEPARATOR '\n'»
+		   	char «s.name»String[8];
+		   	dtostrf(«s.name»Value, 1, 2, «s.name»String);
+		   	Serial.print("Value: ");
+		   	Serial.println(«s.name»String);
+		   	client.publish("esp32/«s.name»", «s.name»String);
+				«ENDFOR»
+				
+				«FOR s : m.sensors SEPARATOR '\n'»
+			«s.name»PrintString = «s.name»String + «s.name»Value;
+			    «ENDFOR»
+			    
+			    Display(«FOR s : m.sensors SEPARATOR ', '»«s.name»PrintString«ENDFOR»);
+			  }
+			}
+			
+			void Display(«FOR s : m.sensors SEPARATOR ', '»String «s.name»PrintString«ENDFOR») {
+			
+			  u8g2.clear();
+			  u8g2.clearDisplay();
+			  u8g2.clearBuffer();                   // clear the internal memory
+			«var i=10»
+			«FOR s : m.sensors»u8g2.setCursor(0, «i»)«{i+=30; ""}»
+				u8g2.print(«s.name»PrintString);
+			«ENDFOR»
+		
+			  u8g2.sendBuffer();                  // transfer internal memory to the display
+			  delay(1000);
+			  }
 		
 		'''
-			
-			 
-			
-			
+
+	def String generateCredentials(Credentials c) {
+
+		switch (c) {
+			Password: '''const char* password = «c.name»'''
+			SSID: '''const char* ssid = «c.name»'''
+			IP: '''const char* mqtt_server = «c.name»'''
 		}
+
+	}
+}

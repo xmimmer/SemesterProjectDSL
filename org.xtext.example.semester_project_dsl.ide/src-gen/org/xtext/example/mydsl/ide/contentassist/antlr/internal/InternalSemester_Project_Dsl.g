@@ -115,30 +115,136 @@ ruleSensor
 	}
 	:
 	(
-		{ before(grammarAccess.getSensorAccess().getAlternatives()); }
-		(rule__Sensor__Alternatives)
-		{ after(grammarAccess.getSensorAccess().getAlternatives()); }
+		{ before(grammarAccess.getSensorAccess().getGroup()); }
+		(rule__Sensor__Group__0)
+		{ after(grammarAccess.getSensorAccess().getGroup()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Sensor__Alternatives
+// Entry rule entryRuleCredentials
+entryRuleCredentials
+:
+{ before(grammarAccess.getCredentialsRule()); }
+	 ruleCredentials
+{ after(grammarAccess.getCredentialsRule()); } 
+	 EOF 
+;
+
+// Rule Credentials
+ruleCredentials 
+	@init {
+		int stackSize = keepStackSize();
+	}
+	:
+	(
+		{ before(grammarAccess.getCredentialsAccess().getAlternatives()); }
+		(rule__Credentials__Alternatives)
+		{ after(grammarAccess.getCredentialsAccess().getAlternatives()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+// Entry rule entryRuleSSID
+entryRuleSSID
+:
+{ before(grammarAccess.getSSIDRule()); }
+	 ruleSSID
+{ after(grammarAccess.getSSIDRule()); } 
+	 EOF 
+;
+
+// Rule SSID
+ruleSSID 
+	@init {
+		int stackSize = keepStackSize();
+	}
+	:
+	(
+		{ before(grammarAccess.getSSIDAccess().getGroup()); }
+		(rule__SSID__Group__0)
+		{ after(grammarAccess.getSSIDAccess().getGroup()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+// Entry rule entryRulePassword
+entryRulePassword
+:
+{ before(grammarAccess.getPasswordRule()); }
+	 rulePassword
+{ after(grammarAccess.getPasswordRule()); } 
+	 EOF 
+;
+
+// Rule Password
+rulePassword 
+	@init {
+		int stackSize = keepStackSize();
+	}
+	:
+	(
+		{ before(grammarAccess.getPasswordAccess().getGroup()); }
+		(rule__Password__Group__0)
+		{ after(grammarAccess.getPasswordAccess().getGroup()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+// Entry rule entryRuleIP
+entryRuleIP
+:
+{ before(grammarAccess.getIPRule()); }
+	 ruleIP
+{ after(grammarAccess.getIPRule()); } 
+	 EOF 
+;
+
+// Rule IP
+ruleIP 
+	@init {
+		int stackSize = keepStackSize();
+	}
+	:
+	(
+		{ before(grammarAccess.getIPAccess().getGroup()); }
+		(rule__IP__Group__0)
+		{ after(grammarAccess.getIPAccess().getGroup()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Credentials__Alternatives
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getSensorAccess().getGroup_0()); }
-		(rule__Sensor__Group_0__0)
-		{ after(grammarAccess.getSensorAccess().getGroup_0()); }
+		{ before(grammarAccess.getCredentialsAccess().getSSIDParserRuleCall_0()); }
+		ruleSSID
+		{ after(grammarAccess.getCredentialsAccess().getSSIDParserRuleCall_0()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getSensorAccess().getGroup_1()); }
-		(rule__Sensor__Group_1__0)
-		{ after(grammarAccess.getSensorAccess().getGroup_1()); }
+		{ before(grammarAccess.getCredentialsAccess().getPasswordParserRuleCall_1()); }
+		rulePassword
+		{ after(grammarAccess.getCredentialsAccess().getPasswordParserRuleCall_1()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getCredentialsAccess().getIPParserRuleCall_2()); }
+		ruleIP
+		{ after(grammarAccess.getCredentialsAccess().getIPParserRuleCall_2()); }
 	)
 ;
 finally {
@@ -232,6 +338,7 @@ rule__Model__Group__3
 	}
 :
 	rule__Model__Group__3__Impl
+	rule__Model__Group__4
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -246,6 +353,32 @@ rule__Model__Group__3__Impl
 	{ before(grammarAccess.getModelAccess().getSensorsAssignment_3()); }
 	(rule__Model__SensorsAssignment_3)*
 	{ after(grammarAccess.getModelAccess().getSensorsAssignment_3()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Model__Group__4
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__Model__Group__4__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Model__Group__4__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getModelAccess().getCredentialsAssignment_4()); }
+	(rule__Model__CredentialsAssignment_4)*
+	{ after(grammarAccess.getModelAccess().getCredentialsAssignment_4()); }
 )
 ;
 finally {
@@ -307,53 +440,107 @@ finally {
 }
 
 
-rule__Sensor__Group_0__0
+rule__Sensor__Group__0
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__Sensor__Group_0__0__Impl
-	rule__Sensor__Group_0__1
+	rule__Sensor__Group__0__Impl
+	rule__Sensor__Group__1
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Sensor__Group_0__0__Impl
+rule__Sensor__Group__0__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSensorAccess().getCO2Keyword_0_0()); }
-	'CO2'
-	{ after(grammarAccess.getSensorAccess().getCO2Keyword_0_0()); }
+	{ before(grammarAccess.getSensorAccess().getSensorKeyword_0()); }
+	'sensor'
+	{ after(grammarAccess.getSensorAccess().getSensorKeyword_0()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Sensor__Group_0__1
+rule__Sensor__Group__1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__Sensor__Group_0__1__Impl
+	rule__Sensor__Group__1__Impl
+	rule__Sensor__Group__2
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Sensor__Group_0__1__Impl
+rule__Sensor__Group__1__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSensorAccess().getNameAssignment_0_1()); }
-	(rule__Sensor__NameAssignment_0_1)
-	{ after(grammarAccess.getSensorAccess().getNameAssignment_0_1()); }
+	{ before(grammarAccess.getSensorAccess().getNameAssignment_1()); }
+	(rule__Sensor__NameAssignment_1)
+	{ after(grammarAccess.getSensorAccess().getNameAssignment_1()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Sensor__Group__2
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__Sensor__Group__2__Impl
+	rule__Sensor__Group__3
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Sensor__Group__2__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getSensorAccess().getCommaKeyword_2()); }
+	','
+	{ after(grammarAccess.getSensorAccess().getCommaKeyword_2()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Sensor__Group__3
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__Sensor__Group__3__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Sensor__Group__3__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getSensorAccess().getPinAssignment_3()); }
+	(rule__Sensor__PinAssignment_3)
+	{ after(grammarAccess.getSensorAccess().getPinAssignment_3()); }
 )
 ;
 finally {
@@ -361,53 +548,161 @@ finally {
 }
 
 
-rule__Sensor__Group_1__0
+rule__SSID__Group__0
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__Sensor__Group_1__0__Impl
-	rule__Sensor__Group_1__1
+	rule__SSID__Group__0__Impl
+	rule__SSID__Group__1
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Sensor__Group_1__0__Impl
+rule__SSID__Group__0__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSensorAccess().getCOKeyword_1_0()); }
-	'CO'
-	{ after(grammarAccess.getSensorAccess().getCOKeyword_1_0()); }
+	{ before(grammarAccess.getSSIDAccess().getSsidKeyword_0()); }
+	'ssid'
+	{ after(grammarAccess.getSSIDAccess().getSsidKeyword_0()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Sensor__Group_1__1
+rule__SSID__Group__1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__Sensor__Group_1__1__Impl
+	rule__SSID__Group__1__Impl
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Sensor__Group_1__1__Impl
+rule__SSID__Group__1__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getSensorAccess().getNameAssignment_1_1()); }
-	(rule__Sensor__NameAssignment_1_1)
-	{ after(grammarAccess.getSensorAccess().getNameAssignment_1_1()); }
+	{ before(grammarAccess.getSSIDAccess().getNameAssignment_1()); }
+	(rule__SSID__NameAssignment_1)
+	{ after(grammarAccess.getSSIDAccess().getNameAssignment_1()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__Password__Group__0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__Password__Group__0__Impl
+	rule__Password__Group__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Password__Group__0__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getPasswordAccess().getPasswordKeyword_0()); }
+	'password'
+	{ after(grammarAccess.getPasswordAccess().getPasswordKeyword_0()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Password__Group__1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__Password__Group__1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Password__Group__1__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getPasswordAccess().getNameAssignment_1()); }
+	(rule__Password__NameAssignment_1)
+	{ after(grammarAccess.getPasswordAccess().getNameAssignment_1()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__IP__Group__0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__IP__Group__0__Impl
+	rule__IP__Group__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__IP__Group__0__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getIPAccess().getIpKeyword_0()); }
+	'ip'
+	{ after(grammarAccess.getIPAccess().getIpKeyword_0()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__IP__Group__1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__IP__Group__1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__IP__Group__1__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getIPAccess().getNameAssignment_1()); }
+	(rule__IP__NameAssignment_1)
+	{ after(grammarAccess.getIPAccess().getNameAssignment_1()); }
 )
 ;
 finally {
@@ -460,6 +755,21 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+rule__Model__CredentialsAssignment_4
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getModelAccess().getCredentialsCredentialsParserRuleCall_4_0()); }
+		ruleCredentials
+		{ after(grammarAccess.getModelAccess().getCredentialsCredentialsParserRuleCall_4_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 rule__Variable__NameAssignment_1
 	@init {
 		int stackSize = keepStackSize();
@@ -475,30 +785,75 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Sensor__NameAssignment_0_1
+rule__Sensor__NameAssignment_1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getSensorAccess().getNameIDTerminalRuleCall_0_1_0()); }
+		{ before(grammarAccess.getSensorAccess().getNameIDTerminalRuleCall_1_0()); }
 		RULE_ID
-		{ after(grammarAccess.getSensorAccess().getNameIDTerminalRuleCall_0_1_0()); }
+		{ after(grammarAccess.getSensorAccess().getNameIDTerminalRuleCall_1_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Sensor__NameAssignment_1_1
+rule__Sensor__PinAssignment_3
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getSensorAccess().getNameIDTerminalRuleCall_1_1_0()); }
+		{ before(grammarAccess.getSensorAccess().getPinINTTerminalRuleCall_3_0()); }
+		RULE_INT
+		{ after(grammarAccess.getSensorAccess().getPinINTTerminalRuleCall_3_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__SSID__NameAssignment_1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getSSIDAccess().getNameIDTerminalRuleCall_1_0()); }
 		RULE_ID
-		{ after(grammarAccess.getSensorAccess().getNameIDTerminalRuleCall_1_1_0()); }
+		{ after(grammarAccess.getSSIDAccess().getNameIDTerminalRuleCall_1_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Password__NameAssignment_1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getPasswordAccess().getNameIDTerminalRuleCall_1_0()); }
+		RULE_ID
+		{ after(grammarAccess.getPasswordAccess().getNameIDTerminalRuleCall_1_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__IP__NameAssignment_1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getIPAccess().getNameSTRINGTerminalRuleCall_1_0()); }
+		RULE_STRING
+		{ after(grammarAccess.getIPAccess().getNameSTRINGTerminalRuleCall_1_0()); }
 	)
 ;
 finally {

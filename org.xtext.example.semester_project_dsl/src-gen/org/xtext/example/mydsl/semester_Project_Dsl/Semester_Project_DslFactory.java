@@ -51,6 +51,42 @@ public interface Semester_Project_DslFactory extends EFactory
   Sensor createSensor();
 
   /**
+   * Returns a new object of class '<em>Credentials</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Credentials</em>'.
+   * @generated
+   */
+  Credentials createCredentials();
+
+  /**
+   * Returns a new object of class '<em>SSID</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>SSID</em>'.
+   * @generated
+   */
+  SSID createSSID();
+
+  /**
+   * Returns a new object of class '<em>Password</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Password</em>'.
+   * @generated
+   */
+  Password createPassword();
+
+  /**
+   * Returns a new object of class '<em>IP</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>IP</em>'.
+   * @generated
+   */
+  IP createIP();
+
+  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

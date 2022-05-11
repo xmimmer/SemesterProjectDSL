@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.semester_Project_Dsl.Sensor#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.semester_Project_Dsl.Sensor#getPin <em>Pin</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.mydsl.semester_Project_Dsl.Semester_Project_DslPackage#getSensor()
@@ -44,5 +45,27 @@ public interface Sensor extends EObject
    * @generated
    */
   void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Pin</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Pin</em>' attribute.
+   * @see #setPin(int)
+   * @see org.xtext.example.mydsl.semester_Project_Dsl.Semester_Project_DslPackage#getSensor_Pin()
+   * @model
+   * @generated
+   */
+  int getPin();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.semester_Project_Dsl.Sensor#getPin <em>Pin</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Pin</em>' attribute.
+   * @see #getPin()
+   * @generated
+   */
+  void setPin(int value);
 
 } // Sensor

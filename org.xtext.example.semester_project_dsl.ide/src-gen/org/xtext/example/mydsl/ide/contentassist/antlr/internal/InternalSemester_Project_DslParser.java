@@ -22,13 +22,16 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalSemester_Project_DslParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'Program'", "'var'", "'CO2'", "'CO'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'Program'", "'var'", "'sensor'", "','", "'ssid'", "'password'", "'ip'"
     };
     public static final int RULE_ID=4;
     public static final int RULE_WS=9;
     public static final int RULE_STRING=6;
     public static final int RULE_ANY_OTHER=10;
     public static final int RULE_SL_COMMENT=8;
+    public static final int T__15=15;
+    public static final int T__16=16;
+    public static final int T__17=17;
     public static final int RULE_INT=5;
     public static final int T__11=11;
     public static final int RULE_ML_COMMENT=7;
@@ -257,31 +260,31 @@ public class InternalSemester_Project_DslParser extends AbstractInternalContentA
 
 
     // $ANTLR start "ruleSensor"
-    // InternalSemester_Project_Dsl.g:112:1: ruleSensor : ( ( rule__Sensor__Alternatives ) ) ;
+    // InternalSemester_Project_Dsl.g:112:1: ruleSensor : ( ( rule__Sensor__Group__0 ) ) ;
     public final void ruleSensor() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemester_Project_Dsl.g:116:2: ( ( ( rule__Sensor__Alternatives ) ) )
-            // InternalSemester_Project_Dsl.g:117:2: ( ( rule__Sensor__Alternatives ) )
+            // InternalSemester_Project_Dsl.g:116:2: ( ( ( rule__Sensor__Group__0 ) ) )
+            // InternalSemester_Project_Dsl.g:117:2: ( ( rule__Sensor__Group__0 ) )
             {
-            // InternalSemester_Project_Dsl.g:117:2: ( ( rule__Sensor__Alternatives ) )
-            // InternalSemester_Project_Dsl.g:118:3: ( rule__Sensor__Alternatives )
+            // InternalSemester_Project_Dsl.g:117:2: ( ( rule__Sensor__Group__0 ) )
+            // InternalSemester_Project_Dsl.g:118:3: ( rule__Sensor__Group__0 )
             {
-             before(grammarAccess.getSensorAccess().getAlternatives()); 
-            // InternalSemester_Project_Dsl.g:119:3: ( rule__Sensor__Alternatives )
-            // InternalSemester_Project_Dsl.g:119:4: rule__Sensor__Alternatives
+             before(grammarAccess.getSensorAccess().getGroup()); 
+            // InternalSemester_Project_Dsl.g:119:3: ( rule__Sensor__Group__0 )
+            // InternalSemester_Project_Dsl.g:119:4: rule__Sensor__Group__0
             {
             pushFollow(FOLLOW_2);
-            rule__Sensor__Alternatives();
+            rule__Sensor__Group__0();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getSensorAccess().getAlternatives()); 
+             after(grammarAccess.getSensorAccess().getGroup()); 
 
             }
 
@@ -303,49 +306,360 @@ public class InternalSemester_Project_DslParser extends AbstractInternalContentA
     // $ANTLR end "ruleSensor"
 
 
-    // $ANTLR start "rule__Sensor__Alternatives"
-    // InternalSemester_Project_Dsl.g:127:1: rule__Sensor__Alternatives : ( ( ( rule__Sensor__Group_0__0 ) ) | ( ( rule__Sensor__Group_1__0 ) ) );
-    public final void rule__Sensor__Alternatives() throws RecognitionException {
+    // $ANTLR start "entryRuleCredentials"
+    // InternalSemester_Project_Dsl.g:128:1: entryRuleCredentials : ruleCredentials EOF ;
+    public final void entryRuleCredentials() throws RecognitionException {
+        try {
+            // InternalSemester_Project_Dsl.g:129:1: ( ruleCredentials EOF )
+            // InternalSemester_Project_Dsl.g:130:1: ruleCredentials EOF
+            {
+             before(grammarAccess.getCredentialsRule()); 
+            pushFollow(FOLLOW_1);
+            ruleCredentials();
+
+            state._fsp--;
+
+             after(grammarAccess.getCredentialsRule()); 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return ;
+    }
+    // $ANTLR end "entryRuleCredentials"
+
+
+    // $ANTLR start "ruleCredentials"
+    // InternalSemester_Project_Dsl.g:137:1: ruleCredentials : ( ( rule__Credentials__Alternatives ) ) ;
+    public final void ruleCredentials() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemester_Project_Dsl.g:131:1: ( ( ( rule__Sensor__Group_0__0 ) ) | ( ( rule__Sensor__Group_1__0 ) ) )
-            int alt1=2;
-            int LA1_0 = input.LA(1);
+            // InternalSemester_Project_Dsl.g:141:2: ( ( ( rule__Credentials__Alternatives ) ) )
+            // InternalSemester_Project_Dsl.g:142:2: ( ( rule__Credentials__Alternatives ) )
+            {
+            // InternalSemester_Project_Dsl.g:142:2: ( ( rule__Credentials__Alternatives ) )
+            // InternalSemester_Project_Dsl.g:143:3: ( rule__Credentials__Alternatives )
+            {
+             before(grammarAccess.getCredentialsAccess().getAlternatives()); 
+            // InternalSemester_Project_Dsl.g:144:3: ( rule__Credentials__Alternatives )
+            // InternalSemester_Project_Dsl.g:144:4: rule__Credentials__Alternatives
+            {
+            pushFollow(FOLLOW_2);
+            rule__Credentials__Alternatives();
 
-            if ( (LA1_0==13) ) {
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getCredentialsAccess().getAlternatives()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "ruleCredentials"
+
+
+    // $ANTLR start "entryRuleSSID"
+    // InternalSemester_Project_Dsl.g:153:1: entryRuleSSID : ruleSSID EOF ;
+    public final void entryRuleSSID() throws RecognitionException {
+        try {
+            // InternalSemester_Project_Dsl.g:154:1: ( ruleSSID EOF )
+            // InternalSemester_Project_Dsl.g:155:1: ruleSSID EOF
+            {
+             before(grammarAccess.getSSIDRule()); 
+            pushFollow(FOLLOW_1);
+            ruleSSID();
+
+            state._fsp--;
+
+             after(grammarAccess.getSSIDRule()); 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return ;
+    }
+    // $ANTLR end "entryRuleSSID"
+
+
+    // $ANTLR start "ruleSSID"
+    // InternalSemester_Project_Dsl.g:162:1: ruleSSID : ( ( rule__SSID__Group__0 ) ) ;
+    public final void ruleSSID() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSemester_Project_Dsl.g:166:2: ( ( ( rule__SSID__Group__0 ) ) )
+            // InternalSemester_Project_Dsl.g:167:2: ( ( rule__SSID__Group__0 ) )
+            {
+            // InternalSemester_Project_Dsl.g:167:2: ( ( rule__SSID__Group__0 ) )
+            // InternalSemester_Project_Dsl.g:168:3: ( rule__SSID__Group__0 )
+            {
+             before(grammarAccess.getSSIDAccess().getGroup()); 
+            // InternalSemester_Project_Dsl.g:169:3: ( rule__SSID__Group__0 )
+            // InternalSemester_Project_Dsl.g:169:4: rule__SSID__Group__0
+            {
+            pushFollow(FOLLOW_2);
+            rule__SSID__Group__0();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getSSIDAccess().getGroup()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "ruleSSID"
+
+
+    // $ANTLR start "entryRulePassword"
+    // InternalSemester_Project_Dsl.g:178:1: entryRulePassword : rulePassword EOF ;
+    public final void entryRulePassword() throws RecognitionException {
+        try {
+            // InternalSemester_Project_Dsl.g:179:1: ( rulePassword EOF )
+            // InternalSemester_Project_Dsl.g:180:1: rulePassword EOF
+            {
+             before(grammarAccess.getPasswordRule()); 
+            pushFollow(FOLLOW_1);
+            rulePassword();
+
+            state._fsp--;
+
+             after(grammarAccess.getPasswordRule()); 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return ;
+    }
+    // $ANTLR end "entryRulePassword"
+
+
+    // $ANTLR start "rulePassword"
+    // InternalSemester_Project_Dsl.g:187:1: rulePassword : ( ( rule__Password__Group__0 ) ) ;
+    public final void rulePassword() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSemester_Project_Dsl.g:191:2: ( ( ( rule__Password__Group__0 ) ) )
+            // InternalSemester_Project_Dsl.g:192:2: ( ( rule__Password__Group__0 ) )
+            {
+            // InternalSemester_Project_Dsl.g:192:2: ( ( rule__Password__Group__0 ) )
+            // InternalSemester_Project_Dsl.g:193:3: ( rule__Password__Group__0 )
+            {
+             before(grammarAccess.getPasswordAccess().getGroup()); 
+            // InternalSemester_Project_Dsl.g:194:3: ( rule__Password__Group__0 )
+            // InternalSemester_Project_Dsl.g:194:4: rule__Password__Group__0
+            {
+            pushFollow(FOLLOW_2);
+            rule__Password__Group__0();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getPasswordAccess().getGroup()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rulePassword"
+
+
+    // $ANTLR start "entryRuleIP"
+    // InternalSemester_Project_Dsl.g:203:1: entryRuleIP : ruleIP EOF ;
+    public final void entryRuleIP() throws RecognitionException {
+        try {
+            // InternalSemester_Project_Dsl.g:204:1: ( ruleIP EOF )
+            // InternalSemester_Project_Dsl.g:205:1: ruleIP EOF
+            {
+             before(grammarAccess.getIPRule()); 
+            pushFollow(FOLLOW_1);
+            ruleIP();
+
+            state._fsp--;
+
+             after(grammarAccess.getIPRule()); 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return ;
+    }
+    // $ANTLR end "entryRuleIP"
+
+
+    // $ANTLR start "ruleIP"
+    // InternalSemester_Project_Dsl.g:212:1: ruleIP : ( ( rule__IP__Group__0 ) ) ;
+    public final void ruleIP() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSemester_Project_Dsl.g:216:2: ( ( ( rule__IP__Group__0 ) ) )
+            // InternalSemester_Project_Dsl.g:217:2: ( ( rule__IP__Group__0 ) )
+            {
+            // InternalSemester_Project_Dsl.g:217:2: ( ( rule__IP__Group__0 ) )
+            // InternalSemester_Project_Dsl.g:218:3: ( rule__IP__Group__0 )
+            {
+             before(grammarAccess.getIPAccess().getGroup()); 
+            // InternalSemester_Project_Dsl.g:219:3: ( rule__IP__Group__0 )
+            // InternalSemester_Project_Dsl.g:219:4: rule__IP__Group__0
+            {
+            pushFollow(FOLLOW_2);
+            rule__IP__Group__0();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getIPAccess().getGroup()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "ruleIP"
+
+
+    // $ANTLR start "rule__Credentials__Alternatives"
+    // InternalSemester_Project_Dsl.g:227:1: rule__Credentials__Alternatives : ( ( ruleSSID ) | ( rulePassword ) | ( ruleIP ) );
+    public final void rule__Credentials__Alternatives() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSemester_Project_Dsl.g:231:1: ( ( ruleSSID ) | ( rulePassword ) | ( ruleIP ) )
+            int alt1=3;
+            switch ( input.LA(1) ) {
+            case 15:
+                {
                 alt1=1;
-            }
-            else if ( (LA1_0==14) ) {
+                }
+                break;
+            case 16:
+                {
                 alt1=2;
-            }
-            else {
+                }
+                break;
+            case 17:
+                {
+                alt1=3;
+                }
+                break;
+            default:
                 NoViableAltException nvae =
                     new NoViableAltException("", 1, 0, input);
 
                 throw nvae;
             }
+
             switch (alt1) {
                 case 1 :
-                    // InternalSemester_Project_Dsl.g:132:2: ( ( rule__Sensor__Group_0__0 ) )
+                    // InternalSemester_Project_Dsl.g:232:2: ( ruleSSID )
                     {
-                    // InternalSemester_Project_Dsl.g:132:2: ( ( rule__Sensor__Group_0__0 ) )
-                    // InternalSemester_Project_Dsl.g:133:3: ( rule__Sensor__Group_0__0 )
+                    // InternalSemester_Project_Dsl.g:232:2: ( ruleSSID )
+                    // InternalSemester_Project_Dsl.g:233:3: ruleSSID
                     {
-                     before(grammarAccess.getSensorAccess().getGroup_0()); 
-                    // InternalSemester_Project_Dsl.g:134:3: ( rule__Sensor__Group_0__0 )
-                    // InternalSemester_Project_Dsl.g:134:4: rule__Sensor__Group_0__0
-                    {
+                     before(grammarAccess.getCredentialsAccess().getSSIDParserRuleCall_0()); 
                     pushFollow(FOLLOW_2);
-                    rule__Sensor__Group_0__0();
+                    ruleSSID();
 
                     state._fsp--;
 
-
-                    }
-
-                     after(grammarAccess.getSensorAccess().getGroup_0()); 
+                     after(grammarAccess.getCredentialsAccess().getSSIDParserRuleCall_0()); 
 
                     }
 
@@ -353,24 +667,37 @@ public class InternalSemester_Project_DslParser extends AbstractInternalContentA
                     }
                     break;
                 case 2 :
-                    // InternalSemester_Project_Dsl.g:138:2: ( ( rule__Sensor__Group_1__0 ) )
+                    // InternalSemester_Project_Dsl.g:238:2: ( rulePassword )
                     {
-                    // InternalSemester_Project_Dsl.g:138:2: ( ( rule__Sensor__Group_1__0 ) )
-                    // InternalSemester_Project_Dsl.g:139:3: ( rule__Sensor__Group_1__0 )
+                    // InternalSemester_Project_Dsl.g:238:2: ( rulePassword )
+                    // InternalSemester_Project_Dsl.g:239:3: rulePassword
                     {
-                     before(grammarAccess.getSensorAccess().getGroup_1()); 
-                    // InternalSemester_Project_Dsl.g:140:3: ( rule__Sensor__Group_1__0 )
-                    // InternalSemester_Project_Dsl.g:140:4: rule__Sensor__Group_1__0
-                    {
+                     before(grammarAccess.getCredentialsAccess().getPasswordParserRuleCall_1()); 
                     pushFollow(FOLLOW_2);
-                    rule__Sensor__Group_1__0();
+                    rulePassword();
 
                     state._fsp--;
 
+                     after(grammarAccess.getCredentialsAccess().getPasswordParserRuleCall_1()); 
 
                     }
 
-                     after(grammarAccess.getSensorAccess().getGroup_1()); 
+
+                    }
+                    break;
+                case 3 :
+                    // InternalSemester_Project_Dsl.g:244:2: ( ruleIP )
+                    {
+                    // InternalSemester_Project_Dsl.g:244:2: ( ruleIP )
+                    // InternalSemester_Project_Dsl.g:245:3: ruleIP
+                    {
+                     before(grammarAccess.getCredentialsAccess().getIPParserRuleCall_2()); 
+                    pushFollow(FOLLOW_2);
+                    ruleIP();
+
+                    state._fsp--;
+
+                     after(grammarAccess.getCredentialsAccess().getIPParserRuleCall_2()); 
 
                     }
 
@@ -391,18 +718,18 @@ public class InternalSemester_Project_DslParser extends AbstractInternalContentA
         }
         return ;
     }
-    // $ANTLR end "rule__Sensor__Alternatives"
+    // $ANTLR end "rule__Credentials__Alternatives"
 
 
     // $ANTLR start "rule__Model__Group__0"
-    // InternalSemester_Project_Dsl.g:148:1: rule__Model__Group__0 : rule__Model__Group__0__Impl rule__Model__Group__1 ;
+    // InternalSemester_Project_Dsl.g:254:1: rule__Model__Group__0 : rule__Model__Group__0__Impl rule__Model__Group__1 ;
     public final void rule__Model__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemester_Project_Dsl.g:152:1: ( rule__Model__Group__0__Impl rule__Model__Group__1 )
-            // InternalSemester_Project_Dsl.g:153:2: rule__Model__Group__0__Impl rule__Model__Group__1
+            // InternalSemester_Project_Dsl.g:258:1: ( rule__Model__Group__0__Impl rule__Model__Group__1 )
+            // InternalSemester_Project_Dsl.g:259:2: rule__Model__Group__0__Impl rule__Model__Group__1
             {
             pushFollow(FOLLOW_3);
             rule__Model__Group__0__Impl();
@@ -433,17 +760,17 @@ public class InternalSemester_Project_DslParser extends AbstractInternalContentA
 
 
     // $ANTLR start "rule__Model__Group__0__Impl"
-    // InternalSemester_Project_Dsl.g:160:1: rule__Model__Group__0__Impl : ( 'Program' ) ;
+    // InternalSemester_Project_Dsl.g:266:1: rule__Model__Group__0__Impl : ( 'Program' ) ;
     public final void rule__Model__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemester_Project_Dsl.g:164:1: ( ( 'Program' ) )
-            // InternalSemester_Project_Dsl.g:165:1: ( 'Program' )
+            // InternalSemester_Project_Dsl.g:270:1: ( ( 'Program' ) )
+            // InternalSemester_Project_Dsl.g:271:1: ( 'Program' )
             {
-            // InternalSemester_Project_Dsl.g:165:1: ( 'Program' )
-            // InternalSemester_Project_Dsl.g:166:2: 'Program'
+            // InternalSemester_Project_Dsl.g:271:1: ( 'Program' )
+            // InternalSemester_Project_Dsl.g:272:2: 'Program'
             {
              before(grammarAccess.getModelAccess().getProgramKeyword_0()); 
             match(input,11,FOLLOW_2); 
@@ -470,14 +797,14 @@ public class InternalSemester_Project_DslParser extends AbstractInternalContentA
 
 
     // $ANTLR start "rule__Model__Group__1"
-    // InternalSemester_Project_Dsl.g:175:1: rule__Model__Group__1 : rule__Model__Group__1__Impl rule__Model__Group__2 ;
+    // InternalSemester_Project_Dsl.g:281:1: rule__Model__Group__1 : rule__Model__Group__1__Impl rule__Model__Group__2 ;
     public final void rule__Model__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemester_Project_Dsl.g:179:1: ( rule__Model__Group__1__Impl rule__Model__Group__2 )
-            // InternalSemester_Project_Dsl.g:180:2: rule__Model__Group__1__Impl rule__Model__Group__2
+            // InternalSemester_Project_Dsl.g:285:1: ( rule__Model__Group__1__Impl rule__Model__Group__2 )
+            // InternalSemester_Project_Dsl.g:286:2: rule__Model__Group__1__Impl rule__Model__Group__2
             {
             pushFollow(FOLLOW_4);
             rule__Model__Group__1__Impl();
@@ -508,21 +835,21 @@ public class InternalSemester_Project_DslParser extends AbstractInternalContentA
 
 
     // $ANTLR start "rule__Model__Group__1__Impl"
-    // InternalSemester_Project_Dsl.g:187:1: rule__Model__Group__1__Impl : ( ( rule__Model__NameAssignment_1 ) ) ;
+    // InternalSemester_Project_Dsl.g:293:1: rule__Model__Group__1__Impl : ( ( rule__Model__NameAssignment_1 ) ) ;
     public final void rule__Model__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemester_Project_Dsl.g:191:1: ( ( ( rule__Model__NameAssignment_1 ) ) )
-            // InternalSemester_Project_Dsl.g:192:1: ( ( rule__Model__NameAssignment_1 ) )
+            // InternalSemester_Project_Dsl.g:297:1: ( ( ( rule__Model__NameAssignment_1 ) ) )
+            // InternalSemester_Project_Dsl.g:298:1: ( ( rule__Model__NameAssignment_1 ) )
             {
-            // InternalSemester_Project_Dsl.g:192:1: ( ( rule__Model__NameAssignment_1 ) )
-            // InternalSemester_Project_Dsl.g:193:2: ( rule__Model__NameAssignment_1 )
+            // InternalSemester_Project_Dsl.g:298:1: ( ( rule__Model__NameAssignment_1 ) )
+            // InternalSemester_Project_Dsl.g:299:2: ( rule__Model__NameAssignment_1 )
             {
              before(grammarAccess.getModelAccess().getNameAssignment_1()); 
-            // InternalSemester_Project_Dsl.g:194:2: ( rule__Model__NameAssignment_1 )
-            // InternalSemester_Project_Dsl.g:194:3: rule__Model__NameAssignment_1
+            // InternalSemester_Project_Dsl.g:300:2: ( rule__Model__NameAssignment_1 )
+            // InternalSemester_Project_Dsl.g:300:3: rule__Model__NameAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__Model__NameAssignment_1();
@@ -555,14 +882,14 @@ public class InternalSemester_Project_DslParser extends AbstractInternalContentA
 
 
     // $ANTLR start "rule__Model__Group__2"
-    // InternalSemester_Project_Dsl.g:202:1: rule__Model__Group__2 : rule__Model__Group__2__Impl rule__Model__Group__3 ;
+    // InternalSemester_Project_Dsl.g:308:1: rule__Model__Group__2 : rule__Model__Group__2__Impl rule__Model__Group__3 ;
     public final void rule__Model__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemester_Project_Dsl.g:206:1: ( rule__Model__Group__2__Impl rule__Model__Group__3 )
-            // InternalSemester_Project_Dsl.g:207:2: rule__Model__Group__2__Impl rule__Model__Group__3
+            // InternalSemester_Project_Dsl.g:312:1: ( rule__Model__Group__2__Impl rule__Model__Group__3 )
+            // InternalSemester_Project_Dsl.g:313:2: rule__Model__Group__2__Impl rule__Model__Group__3
             {
             pushFollow(FOLLOW_4);
             rule__Model__Group__2__Impl();
@@ -593,20 +920,20 @@ public class InternalSemester_Project_DslParser extends AbstractInternalContentA
 
 
     // $ANTLR start "rule__Model__Group__2__Impl"
-    // InternalSemester_Project_Dsl.g:214:1: rule__Model__Group__2__Impl : ( ( rule__Model__VariablesAssignment_2 )* ) ;
+    // InternalSemester_Project_Dsl.g:320:1: rule__Model__Group__2__Impl : ( ( rule__Model__VariablesAssignment_2 )* ) ;
     public final void rule__Model__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemester_Project_Dsl.g:218:1: ( ( ( rule__Model__VariablesAssignment_2 )* ) )
-            // InternalSemester_Project_Dsl.g:219:1: ( ( rule__Model__VariablesAssignment_2 )* )
+            // InternalSemester_Project_Dsl.g:324:1: ( ( ( rule__Model__VariablesAssignment_2 )* ) )
+            // InternalSemester_Project_Dsl.g:325:1: ( ( rule__Model__VariablesAssignment_2 )* )
             {
-            // InternalSemester_Project_Dsl.g:219:1: ( ( rule__Model__VariablesAssignment_2 )* )
-            // InternalSemester_Project_Dsl.g:220:2: ( rule__Model__VariablesAssignment_2 )*
+            // InternalSemester_Project_Dsl.g:325:1: ( ( rule__Model__VariablesAssignment_2 )* )
+            // InternalSemester_Project_Dsl.g:326:2: ( rule__Model__VariablesAssignment_2 )*
             {
              before(grammarAccess.getModelAccess().getVariablesAssignment_2()); 
-            // InternalSemester_Project_Dsl.g:221:2: ( rule__Model__VariablesAssignment_2 )*
+            // InternalSemester_Project_Dsl.g:327:2: ( rule__Model__VariablesAssignment_2 )*
             loop2:
             do {
                 int alt2=2;
@@ -619,7 +946,7 @@ public class InternalSemester_Project_DslParser extends AbstractInternalContentA
 
                 switch (alt2) {
             	case 1 :
-            	    // InternalSemester_Project_Dsl.g:221:3: rule__Model__VariablesAssignment_2
+            	    // InternalSemester_Project_Dsl.g:327:3: rule__Model__VariablesAssignment_2
             	    {
             	    pushFollow(FOLLOW_5);
             	    rule__Model__VariablesAssignment_2();
@@ -658,17 +985,22 @@ public class InternalSemester_Project_DslParser extends AbstractInternalContentA
 
 
     // $ANTLR start "rule__Model__Group__3"
-    // InternalSemester_Project_Dsl.g:229:1: rule__Model__Group__3 : rule__Model__Group__3__Impl ;
+    // InternalSemester_Project_Dsl.g:335:1: rule__Model__Group__3 : rule__Model__Group__3__Impl rule__Model__Group__4 ;
     public final void rule__Model__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemester_Project_Dsl.g:233:1: ( rule__Model__Group__3__Impl )
-            // InternalSemester_Project_Dsl.g:234:2: rule__Model__Group__3__Impl
+            // InternalSemester_Project_Dsl.g:339:1: ( rule__Model__Group__3__Impl rule__Model__Group__4 )
+            // InternalSemester_Project_Dsl.g:340:2: rule__Model__Group__3__Impl rule__Model__Group__4
             {
-            pushFollow(FOLLOW_2);
+            pushFollow(FOLLOW_4);
             rule__Model__Group__3__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Model__Group__4();
 
             state._fsp--;
 
@@ -691,33 +1023,33 @@ public class InternalSemester_Project_DslParser extends AbstractInternalContentA
 
 
     // $ANTLR start "rule__Model__Group__3__Impl"
-    // InternalSemester_Project_Dsl.g:240:1: rule__Model__Group__3__Impl : ( ( rule__Model__SensorsAssignment_3 )* ) ;
+    // InternalSemester_Project_Dsl.g:347:1: rule__Model__Group__3__Impl : ( ( rule__Model__SensorsAssignment_3 )* ) ;
     public final void rule__Model__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemester_Project_Dsl.g:244:1: ( ( ( rule__Model__SensorsAssignment_3 )* ) )
-            // InternalSemester_Project_Dsl.g:245:1: ( ( rule__Model__SensorsAssignment_3 )* )
+            // InternalSemester_Project_Dsl.g:351:1: ( ( ( rule__Model__SensorsAssignment_3 )* ) )
+            // InternalSemester_Project_Dsl.g:352:1: ( ( rule__Model__SensorsAssignment_3 )* )
             {
-            // InternalSemester_Project_Dsl.g:245:1: ( ( rule__Model__SensorsAssignment_3 )* )
-            // InternalSemester_Project_Dsl.g:246:2: ( rule__Model__SensorsAssignment_3 )*
+            // InternalSemester_Project_Dsl.g:352:1: ( ( rule__Model__SensorsAssignment_3 )* )
+            // InternalSemester_Project_Dsl.g:353:2: ( rule__Model__SensorsAssignment_3 )*
             {
              before(grammarAccess.getModelAccess().getSensorsAssignment_3()); 
-            // InternalSemester_Project_Dsl.g:247:2: ( rule__Model__SensorsAssignment_3 )*
+            // InternalSemester_Project_Dsl.g:354:2: ( rule__Model__SensorsAssignment_3 )*
             loop3:
             do {
                 int alt3=2;
                 int LA3_0 = input.LA(1);
 
-                if ( ((LA3_0>=13 && LA3_0<=14)) ) {
+                if ( (LA3_0==13) ) {
                     alt3=1;
                 }
 
 
                 switch (alt3) {
             	case 1 :
-            	    // InternalSemester_Project_Dsl.g:247:3: rule__Model__SensorsAssignment_3
+            	    // InternalSemester_Project_Dsl.g:354:3: rule__Model__SensorsAssignment_3
             	    {
             	    pushFollow(FOLLOW_6);
             	    rule__Model__SensorsAssignment_3();
@@ -755,15 +1087,113 @@ public class InternalSemester_Project_DslParser extends AbstractInternalContentA
     // $ANTLR end "rule__Model__Group__3__Impl"
 
 
+    // $ANTLR start "rule__Model__Group__4"
+    // InternalSemester_Project_Dsl.g:362:1: rule__Model__Group__4 : rule__Model__Group__4__Impl ;
+    public final void rule__Model__Group__4() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSemester_Project_Dsl.g:366:1: ( rule__Model__Group__4__Impl )
+            // InternalSemester_Project_Dsl.g:367:2: rule__Model__Group__4__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__Model__Group__4__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Model__Group__4"
+
+
+    // $ANTLR start "rule__Model__Group__4__Impl"
+    // InternalSemester_Project_Dsl.g:373:1: rule__Model__Group__4__Impl : ( ( rule__Model__CredentialsAssignment_4 )* ) ;
+    public final void rule__Model__Group__4__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSemester_Project_Dsl.g:377:1: ( ( ( rule__Model__CredentialsAssignment_4 )* ) )
+            // InternalSemester_Project_Dsl.g:378:1: ( ( rule__Model__CredentialsAssignment_4 )* )
+            {
+            // InternalSemester_Project_Dsl.g:378:1: ( ( rule__Model__CredentialsAssignment_4 )* )
+            // InternalSemester_Project_Dsl.g:379:2: ( rule__Model__CredentialsAssignment_4 )*
+            {
+             before(grammarAccess.getModelAccess().getCredentialsAssignment_4()); 
+            // InternalSemester_Project_Dsl.g:380:2: ( rule__Model__CredentialsAssignment_4 )*
+            loop4:
+            do {
+                int alt4=2;
+                int LA4_0 = input.LA(1);
+
+                if ( ((LA4_0>=15 && LA4_0<=17)) ) {
+                    alt4=1;
+                }
+
+
+                switch (alt4) {
+            	case 1 :
+            	    // InternalSemester_Project_Dsl.g:380:3: rule__Model__CredentialsAssignment_4
+            	    {
+            	    pushFollow(FOLLOW_7);
+            	    rule__Model__CredentialsAssignment_4();
+
+            	    state._fsp--;
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop4;
+                }
+            } while (true);
+
+             after(grammarAccess.getModelAccess().getCredentialsAssignment_4()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Model__Group__4__Impl"
+
+
     // $ANTLR start "rule__Variable__Group__0"
-    // InternalSemester_Project_Dsl.g:256:1: rule__Variable__Group__0 : rule__Variable__Group__0__Impl rule__Variable__Group__1 ;
+    // InternalSemester_Project_Dsl.g:389:1: rule__Variable__Group__0 : rule__Variable__Group__0__Impl rule__Variable__Group__1 ;
     public final void rule__Variable__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemester_Project_Dsl.g:260:1: ( rule__Variable__Group__0__Impl rule__Variable__Group__1 )
-            // InternalSemester_Project_Dsl.g:261:2: rule__Variable__Group__0__Impl rule__Variable__Group__1
+            // InternalSemester_Project_Dsl.g:393:1: ( rule__Variable__Group__0__Impl rule__Variable__Group__1 )
+            // InternalSemester_Project_Dsl.g:394:2: rule__Variable__Group__0__Impl rule__Variable__Group__1
             {
             pushFollow(FOLLOW_3);
             rule__Variable__Group__0__Impl();
@@ -794,17 +1224,17 @@ public class InternalSemester_Project_DslParser extends AbstractInternalContentA
 
 
     // $ANTLR start "rule__Variable__Group__0__Impl"
-    // InternalSemester_Project_Dsl.g:268:1: rule__Variable__Group__0__Impl : ( 'var' ) ;
+    // InternalSemester_Project_Dsl.g:401:1: rule__Variable__Group__0__Impl : ( 'var' ) ;
     public final void rule__Variable__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemester_Project_Dsl.g:272:1: ( ( 'var' ) )
-            // InternalSemester_Project_Dsl.g:273:1: ( 'var' )
+            // InternalSemester_Project_Dsl.g:405:1: ( ( 'var' ) )
+            // InternalSemester_Project_Dsl.g:406:1: ( 'var' )
             {
-            // InternalSemester_Project_Dsl.g:273:1: ( 'var' )
-            // InternalSemester_Project_Dsl.g:274:2: 'var'
+            // InternalSemester_Project_Dsl.g:406:1: ( 'var' )
+            // InternalSemester_Project_Dsl.g:407:2: 'var'
             {
              before(grammarAccess.getVariableAccess().getVarKeyword_0()); 
             match(input,12,FOLLOW_2); 
@@ -831,14 +1261,14 @@ public class InternalSemester_Project_DslParser extends AbstractInternalContentA
 
 
     // $ANTLR start "rule__Variable__Group__1"
-    // InternalSemester_Project_Dsl.g:283:1: rule__Variable__Group__1 : rule__Variable__Group__1__Impl ;
+    // InternalSemester_Project_Dsl.g:416:1: rule__Variable__Group__1 : rule__Variable__Group__1__Impl ;
     public final void rule__Variable__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemester_Project_Dsl.g:287:1: ( rule__Variable__Group__1__Impl )
-            // InternalSemester_Project_Dsl.g:288:2: rule__Variable__Group__1__Impl
+            // InternalSemester_Project_Dsl.g:420:1: ( rule__Variable__Group__1__Impl )
+            // InternalSemester_Project_Dsl.g:421:2: rule__Variable__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Variable__Group__1__Impl();
@@ -864,21 +1294,21 @@ public class InternalSemester_Project_DslParser extends AbstractInternalContentA
 
 
     // $ANTLR start "rule__Variable__Group__1__Impl"
-    // InternalSemester_Project_Dsl.g:294:1: rule__Variable__Group__1__Impl : ( ( rule__Variable__NameAssignment_1 ) ) ;
+    // InternalSemester_Project_Dsl.g:427:1: rule__Variable__Group__1__Impl : ( ( rule__Variable__NameAssignment_1 ) ) ;
     public final void rule__Variable__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemester_Project_Dsl.g:298:1: ( ( ( rule__Variable__NameAssignment_1 ) ) )
-            // InternalSemester_Project_Dsl.g:299:1: ( ( rule__Variable__NameAssignment_1 ) )
+            // InternalSemester_Project_Dsl.g:431:1: ( ( ( rule__Variable__NameAssignment_1 ) ) )
+            // InternalSemester_Project_Dsl.g:432:1: ( ( rule__Variable__NameAssignment_1 ) )
             {
-            // InternalSemester_Project_Dsl.g:299:1: ( ( rule__Variable__NameAssignment_1 ) )
-            // InternalSemester_Project_Dsl.g:300:2: ( rule__Variable__NameAssignment_1 )
+            // InternalSemester_Project_Dsl.g:432:1: ( ( rule__Variable__NameAssignment_1 ) )
+            // InternalSemester_Project_Dsl.g:433:2: ( rule__Variable__NameAssignment_1 )
             {
              before(grammarAccess.getVariableAccess().getNameAssignment_1()); 
-            // InternalSemester_Project_Dsl.g:301:2: ( rule__Variable__NameAssignment_1 )
-            // InternalSemester_Project_Dsl.g:301:3: rule__Variable__NameAssignment_1
+            // InternalSemester_Project_Dsl.g:434:2: ( rule__Variable__NameAssignment_1 )
+            // InternalSemester_Project_Dsl.g:434:3: rule__Variable__NameAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__Variable__NameAssignment_1();
@@ -910,23 +1340,23 @@ public class InternalSemester_Project_DslParser extends AbstractInternalContentA
     // $ANTLR end "rule__Variable__Group__1__Impl"
 
 
-    // $ANTLR start "rule__Sensor__Group_0__0"
-    // InternalSemester_Project_Dsl.g:310:1: rule__Sensor__Group_0__0 : rule__Sensor__Group_0__0__Impl rule__Sensor__Group_0__1 ;
-    public final void rule__Sensor__Group_0__0() throws RecognitionException {
+    // $ANTLR start "rule__Sensor__Group__0"
+    // InternalSemester_Project_Dsl.g:443:1: rule__Sensor__Group__0 : rule__Sensor__Group__0__Impl rule__Sensor__Group__1 ;
+    public final void rule__Sensor__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemester_Project_Dsl.g:314:1: ( rule__Sensor__Group_0__0__Impl rule__Sensor__Group_0__1 )
-            // InternalSemester_Project_Dsl.g:315:2: rule__Sensor__Group_0__0__Impl rule__Sensor__Group_0__1
+            // InternalSemester_Project_Dsl.g:447:1: ( rule__Sensor__Group__0__Impl rule__Sensor__Group__1 )
+            // InternalSemester_Project_Dsl.g:448:2: rule__Sensor__Group__0__Impl rule__Sensor__Group__1
             {
             pushFollow(FOLLOW_3);
-            rule__Sensor__Group_0__0__Impl();
+            rule__Sensor__Group__0__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__Sensor__Group_0__1();
+            rule__Sensor__Group__1();
 
             state._fsp--;
 
@@ -945,25 +1375,25 @@ public class InternalSemester_Project_DslParser extends AbstractInternalContentA
         }
         return ;
     }
-    // $ANTLR end "rule__Sensor__Group_0__0"
+    // $ANTLR end "rule__Sensor__Group__0"
 
 
-    // $ANTLR start "rule__Sensor__Group_0__0__Impl"
-    // InternalSemester_Project_Dsl.g:322:1: rule__Sensor__Group_0__0__Impl : ( 'CO2' ) ;
-    public final void rule__Sensor__Group_0__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Sensor__Group__0__Impl"
+    // InternalSemester_Project_Dsl.g:455:1: rule__Sensor__Group__0__Impl : ( 'sensor' ) ;
+    public final void rule__Sensor__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemester_Project_Dsl.g:326:1: ( ( 'CO2' ) )
-            // InternalSemester_Project_Dsl.g:327:1: ( 'CO2' )
+            // InternalSemester_Project_Dsl.g:459:1: ( ( 'sensor' ) )
+            // InternalSemester_Project_Dsl.g:460:1: ( 'sensor' )
             {
-            // InternalSemester_Project_Dsl.g:327:1: ( 'CO2' )
-            // InternalSemester_Project_Dsl.g:328:2: 'CO2'
+            // InternalSemester_Project_Dsl.g:460:1: ( 'sensor' )
+            // InternalSemester_Project_Dsl.g:461:2: 'sensor'
             {
-             before(grammarAccess.getSensorAccess().getCO2Keyword_0_0()); 
+             before(grammarAccess.getSensorAccess().getSensorKeyword_0()); 
             match(input,13,FOLLOW_2); 
-             after(grammarAccess.getSensorAccess().getCO2Keyword_0_0()); 
+             after(grammarAccess.getSensorAccess().getSensorKeyword_0()); 
 
             }
 
@@ -982,21 +1412,26 @@ public class InternalSemester_Project_DslParser extends AbstractInternalContentA
         }
         return ;
     }
-    // $ANTLR end "rule__Sensor__Group_0__0__Impl"
+    // $ANTLR end "rule__Sensor__Group__0__Impl"
 
 
-    // $ANTLR start "rule__Sensor__Group_0__1"
-    // InternalSemester_Project_Dsl.g:337:1: rule__Sensor__Group_0__1 : rule__Sensor__Group_0__1__Impl ;
-    public final void rule__Sensor__Group_0__1() throws RecognitionException {
+    // $ANTLR start "rule__Sensor__Group__1"
+    // InternalSemester_Project_Dsl.g:470:1: rule__Sensor__Group__1 : rule__Sensor__Group__1__Impl rule__Sensor__Group__2 ;
+    public final void rule__Sensor__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemester_Project_Dsl.g:341:1: ( rule__Sensor__Group_0__1__Impl )
-            // InternalSemester_Project_Dsl.g:342:2: rule__Sensor__Group_0__1__Impl
+            // InternalSemester_Project_Dsl.g:474:1: ( rule__Sensor__Group__1__Impl rule__Sensor__Group__2 )
+            // InternalSemester_Project_Dsl.g:475:2: rule__Sensor__Group__1__Impl rule__Sensor__Group__2
             {
+            pushFollow(FOLLOW_8);
+            rule__Sensor__Group__1__Impl();
+
+            state._fsp--;
+
             pushFollow(FOLLOW_2);
-            rule__Sensor__Group_0__1__Impl();
+            rule__Sensor__Group__2();
 
             state._fsp--;
 
@@ -1015,35 +1450,35 @@ public class InternalSemester_Project_DslParser extends AbstractInternalContentA
         }
         return ;
     }
-    // $ANTLR end "rule__Sensor__Group_0__1"
+    // $ANTLR end "rule__Sensor__Group__1"
 
 
-    // $ANTLR start "rule__Sensor__Group_0__1__Impl"
-    // InternalSemester_Project_Dsl.g:348:1: rule__Sensor__Group_0__1__Impl : ( ( rule__Sensor__NameAssignment_0_1 ) ) ;
-    public final void rule__Sensor__Group_0__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Sensor__Group__1__Impl"
+    // InternalSemester_Project_Dsl.g:482:1: rule__Sensor__Group__1__Impl : ( ( rule__Sensor__NameAssignment_1 ) ) ;
+    public final void rule__Sensor__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemester_Project_Dsl.g:352:1: ( ( ( rule__Sensor__NameAssignment_0_1 ) ) )
-            // InternalSemester_Project_Dsl.g:353:1: ( ( rule__Sensor__NameAssignment_0_1 ) )
+            // InternalSemester_Project_Dsl.g:486:1: ( ( ( rule__Sensor__NameAssignment_1 ) ) )
+            // InternalSemester_Project_Dsl.g:487:1: ( ( rule__Sensor__NameAssignment_1 ) )
             {
-            // InternalSemester_Project_Dsl.g:353:1: ( ( rule__Sensor__NameAssignment_0_1 ) )
-            // InternalSemester_Project_Dsl.g:354:2: ( rule__Sensor__NameAssignment_0_1 )
+            // InternalSemester_Project_Dsl.g:487:1: ( ( rule__Sensor__NameAssignment_1 ) )
+            // InternalSemester_Project_Dsl.g:488:2: ( rule__Sensor__NameAssignment_1 )
             {
-             before(grammarAccess.getSensorAccess().getNameAssignment_0_1()); 
-            // InternalSemester_Project_Dsl.g:355:2: ( rule__Sensor__NameAssignment_0_1 )
-            // InternalSemester_Project_Dsl.g:355:3: rule__Sensor__NameAssignment_0_1
+             before(grammarAccess.getSensorAccess().getNameAssignment_1()); 
+            // InternalSemester_Project_Dsl.g:489:2: ( rule__Sensor__NameAssignment_1 )
+            // InternalSemester_Project_Dsl.g:489:3: rule__Sensor__NameAssignment_1
             {
             pushFollow(FOLLOW_2);
-            rule__Sensor__NameAssignment_0_1();
+            rule__Sensor__NameAssignment_1();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getSensorAccess().getNameAssignment_0_1()); 
+             after(grammarAccess.getSensorAccess().getNameAssignment_1()); 
 
             }
 
@@ -1062,26 +1497,181 @@ public class InternalSemester_Project_DslParser extends AbstractInternalContentA
         }
         return ;
     }
-    // $ANTLR end "rule__Sensor__Group_0__1__Impl"
+    // $ANTLR end "rule__Sensor__Group__1__Impl"
 
 
-    // $ANTLR start "rule__Sensor__Group_1__0"
-    // InternalSemester_Project_Dsl.g:364:1: rule__Sensor__Group_1__0 : rule__Sensor__Group_1__0__Impl rule__Sensor__Group_1__1 ;
-    public final void rule__Sensor__Group_1__0() throws RecognitionException {
+    // $ANTLR start "rule__Sensor__Group__2"
+    // InternalSemester_Project_Dsl.g:497:1: rule__Sensor__Group__2 : rule__Sensor__Group__2__Impl rule__Sensor__Group__3 ;
+    public final void rule__Sensor__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemester_Project_Dsl.g:368:1: ( rule__Sensor__Group_1__0__Impl rule__Sensor__Group_1__1 )
-            // InternalSemester_Project_Dsl.g:369:2: rule__Sensor__Group_1__0__Impl rule__Sensor__Group_1__1
+            // InternalSemester_Project_Dsl.g:501:1: ( rule__Sensor__Group__2__Impl rule__Sensor__Group__3 )
+            // InternalSemester_Project_Dsl.g:502:2: rule__Sensor__Group__2__Impl rule__Sensor__Group__3
+            {
+            pushFollow(FOLLOW_9);
+            rule__Sensor__Group__2__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Sensor__Group__3();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Sensor__Group__2"
+
+
+    // $ANTLR start "rule__Sensor__Group__2__Impl"
+    // InternalSemester_Project_Dsl.g:509:1: rule__Sensor__Group__2__Impl : ( ',' ) ;
+    public final void rule__Sensor__Group__2__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSemester_Project_Dsl.g:513:1: ( ( ',' ) )
+            // InternalSemester_Project_Dsl.g:514:1: ( ',' )
+            {
+            // InternalSemester_Project_Dsl.g:514:1: ( ',' )
+            // InternalSemester_Project_Dsl.g:515:2: ','
+            {
+             before(grammarAccess.getSensorAccess().getCommaKeyword_2()); 
+            match(input,14,FOLLOW_2); 
+             after(grammarAccess.getSensorAccess().getCommaKeyword_2()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Sensor__Group__2__Impl"
+
+
+    // $ANTLR start "rule__Sensor__Group__3"
+    // InternalSemester_Project_Dsl.g:524:1: rule__Sensor__Group__3 : rule__Sensor__Group__3__Impl ;
+    public final void rule__Sensor__Group__3() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSemester_Project_Dsl.g:528:1: ( rule__Sensor__Group__3__Impl )
+            // InternalSemester_Project_Dsl.g:529:2: rule__Sensor__Group__3__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__Sensor__Group__3__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Sensor__Group__3"
+
+
+    // $ANTLR start "rule__Sensor__Group__3__Impl"
+    // InternalSemester_Project_Dsl.g:535:1: rule__Sensor__Group__3__Impl : ( ( rule__Sensor__PinAssignment_3 ) ) ;
+    public final void rule__Sensor__Group__3__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSemester_Project_Dsl.g:539:1: ( ( ( rule__Sensor__PinAssignment_3 ) ) )
+            // InternalSemester_Project_Dsl.g:540:1: ( ( rule__Sensor__PinAssignment_3 ) )
+            {
+            // InternalSemester_Project_Dsl.g:540:1: ( ( rule__Sensor__PinAssignment_3 ) )
+            // InternalSemester_Project_Dsl.g:541:2: ( rule__Sensor__PinAssignment_3 )
+            {
+             before(grammarAccess.getSensorAccess().getPinAssignment_3()); 
+            // InternalSemester_Project_Dsl.g:542:2: ( rule__Sensor__PinAssignment_3 )
+            // InternalSemester_Project_Dsl.g:542:3: rule__Sensor__PinAssignment_3
+            {
+            pushFollow(FOLLOW_2);
+            rule__Sensor__PinAssignment_3();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getSensorAccess().getPinAssignment_3()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Sensor__Group__3__Impl"
+
+
+    // $ANTLR start "rule__SSID__Group__0"
+    // InternalSemester_Project_Dsl.g:551:1: rule__SSID__Group__0 : rule__SSID__Group__0__Impl rule__SSID__Group__1 ;
+    public final void rule__SSID__Group__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSemester_Project_Dsl.g:555:1: ( rule__SSID__Group__0__Impl rule__SSID__Group__1 )
+            // InternalSemester_Project_Dsl.g:556:2: rule__SSID__Group__0__Impl rule__SSID__Group__1
             {
             pushFollow(FOLLOW_3);
-            rule__Sensor__Group_1__0__Impl();
+            rule__SSID__Group__0__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__Sensor__Group_1__1();
+            rule__SSID__Group__1();
 
             state._fsp--;
 
@@ -1100,25 +1690,25 @@ public class InternalSemester_Project_DslParser extends AbstractInternalContentA
         }
         return ;
     }
-    // $ANTLR end "rule__Sensor__Group_1__0"
+    // $ANTLR end "rule__SSID__Group__0"
 
 
-    // $ANTLR start "rule__Sensor__Group_1__0__Impl"
-    // InternalSemester_Project_Dsl.g:376:1: rule__Sensor__Group_1__0__Impl : ( 'CO' ) ;
-    public final void rule__Sensor__Group_1__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__SSID__Group__0__Impl"
+    // InternalSemester_Project_Dsl.g:563:1: rule__SSID__Group__0__Impl : ( 'ssid' ) ;
+    public final void rule__SSID__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemester_Project_Dsl.g:380:1: ( ( 'CO' ) )
-            // InternalSemester_Project_Dsl.g:381:1: ( 'CO' )
+            // InternalSemester_Project_Dsl.g:567:1: ( ( 'ssid' ) )
+            // InternalSemester_Project_Dsl.g:568:1: ( 'ssid' )
             {
-            // InternalSemester_Project_Dsl.g:381:1: ( 'CO' )
-            // InternalSemester_Project_Dsl.g:382:2: 'CO'
+            // InternalSemester_Project_Dsl.g:568:1: ( 'ssid' )
+            // InternalSemester_Project_Dsl.g:569:2: 'ssid'
             {
-             before(grammarAccess.getSensorAccess().getCOKeyword_1_0()); 
-            match(input,14,FOLLOW_2); 
-             after(grammarAccess.getSensorAccess().getCOKeyword_1_0()); 
+             before(grammarAccess.getSSIDAccess().getSsidKeyword_0()); 
+            match(input,15,FOLLOW_2); 
+             after(grammarAccess.getSSIDAccess().getSsidKeyword_0()); 
 
             }
 
@@ -1137,21 +1727,21 @@ public class InternalSemester_Project_DslParser extends AbstractInternalContentA
         }
         return ;
     }
-    // $ANTLR end "rule__Sensor__Group_1__0__Impl"
+    // $ANTLR end "rule__SSID__Group__0__Impl"
 
 
-    // $ANTLR start "rule__Sensor__Group_1__1"
-    // InternalSemester_Project_Dsl.g:391:1: rule__Sensor__Group_1__1 : rule__Sensor__Group_1__1__Impl ;
-    public final void rule__Sensor__Group_1__1() throws RecognitionException {
+    // $ANTLR start "rule__SSID__Group__1"
+    // InternalSemester_Project_Dsl.g:578:1: rule__SSID__Group__1 : rule__SSID__Group__1__Impl ;
+    public final void rule__SSID__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemester_Project_Dsl.g:395:1: ( rule__Sensor__Group_1__1__Impl )
-            // InternalSemester_Project_Dsl.g:396:2: rule__Sensor__Group_1__1__Impl
+            // InternalSemester_Project_Dsl.g:582:1: ( rule__SSID__Group__1__Impl )
+            // InternalSemester_Project_Dsl.g:583:2: rule__SSID__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
-            rule__Sensor__Group_1__1__Impl();
+            rule__SSID__Group__1__Impl();
 
             state._fsp--;
 
@@ -1170,35 +1760,35 @@ public class InternalSemester_Project_DslParser extends AbstractInternalContentA
         }
         return ;
     }
-    // $ANTLR end "rule__Sensor__Group_1__1"
+    // $ANTLR end "rule__SSID__Group__1"
 
 
-    // $ANTLR start "rule__Sensor__Group_1__1__Impl"
-    // InternalSemester_Project_Dsl.g:402:1: rule__Sensor__Group_1__1__Impl : ( ( rule__Sensor__NameAssignment_1_1 ) ) ;
-    public final void rule__Sensor__Group_1__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__SSID__Group__1__Impl"
+    // InternalSemester_Project_Dsl.g:589:1: rule__SSID__Group__1__Impl : ( ( rule__SSID__NameAssignment_1 ) ) ;
+    public final void rule__SSID__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemester_Project_Dsl.g:406:1: ( ( ( rule__Sensor__NameAssignment_1_1 ) ) )
-            // InternalSemester_Project_Dsl.g:407:1: ( ( rule__Sensor__NameAssignment_1_1 ) )
+            // InternalSemester_Project_Dsl.g:593:1: ( ( ( rule__SSID__NameAssignment_1 ) ) )
+            // InternalSemester_Project_Dsl.g:594:1: ( ( rule__SSID__NameAssignment_1 ) )
             {
-            // InternalSemester_Project_Dsl.g:407:1: ( ( rule__Sensor__NameAssignment_1_1 ) )
-            // InternalSemester_Project_Dsl.g:408:2: ( rule__Sensor__NameAssignment_1_1 )
+            // InternalSemester_Project_Dsl.g:594:1: ( ( rule__SSID__NameAssignment_1 ) )
+            // InternalSemester_Project_Dsl.g:595:2: ( rule__SSID__NameAssignment_1 )
             {
-             before(grammarAccess.getSensorAccess().getNameAssignment_1_1()); 
-            // InternalSemester_Project_Dsl.g:409:2: ( rule__Sensor__NameAssignment_1_1 )
-            // InternalSemester_Project_Dsl.g:409:3: rule__Sensor__NameAssignment_1_1
+             before(grammarAccess.getSSIDAccess().getNameAssignment_1()); 
+            // InternalSemester_Project_Dsl.g:596:2: ( rule__SSID__NameAssignment_1 )
+            // InternalSemester_Project_Dsl.g:596:3: rule__SSID__NameAssignment_1
             {
             pushFollow(FOLLOW_2);
-            rule__Sensor__NameAssignment_1_1();
+            rule__SSID__NameAssignment_1();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getSensorAccess().getNameAssignment_1_1()); 
+             after(grammarAccess.getSSIDAccess().getNameAssignment_1()); 
 
             }
 
@@ -1217,21 +1807,331 @@ public class InternalSemester_Project_DslParser extends AbstractInternalContentA
         }
         return ;
     }
-    // $ANTLR end "rule__Sensor__Group_1__1__Impl"
+    // $ANTLR end "rule__SSID__Group__1__Impl"
+
+
+    // $ANTLR start "rule__Password__Group__0"
+    // InternalSemester_Project_Dsl.g:605:1: rule__Password__Group__0 : rule__Password__Group__0__Impl rule__Password__Group__1 ;
+    public final void rule__Password__Group__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSemester_Project_Dsl.g:609:1: ( rule__Password__Group__0__Impl rule__Password__Group__1 )
+            // InternalSemester_Project_Dsl.g:610:2: rule__Password__Group__0__Impl rule__Password__Group__1
+            {
+            pushFollow(FOLLOW_3);
+            rule__Password__Group__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Password__Group__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Password__Group__0"
+
+
+    // $ANTLR start "rule__Password__Group__0__Impl"
+    // InternalSemester_Project_Dsl.g:617:1: rule__Password__Group__0__Impl : ( 'password' ) ;
+    public final void rule__Password__Group__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSemester_Project_Dsl.g:621:1: ( ( 'password' ) )
+            // InternalSemester_Project_Dsl.g:622:1: ( 'password' )
+            {
+            // InternalSemester_Project_Dsl.g:622:1: ( 'password' )
+            // InternalSemester_Project_Dsl.g:623:2: 'password'
+            {
+             before(grammarAccess.getPasswordAccess().getPasswordKeyword_0()); 
+            match(input,16,FOLLOW_2); 
+             after(grammarAccess.getPasswordAccess().getPasswordKeyword_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Password__Group__0__Impl"
+
+
+    // $ANTLR start "rule__Password__Group__1"
+    // InternalSemester_Project_Dsl.g:632:1: rule__Password__Group__1 : rule__Password__Group__1__Impl ;
+    public final void rule__Password__Group__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSemester_Project_Dsl.g:636:1: ( rule__Password__Group__1__Impl )
+            // InternalSemester_Project_Dsl.g:637:2: rule__Password__Group__1__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__Password__Group__1__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Password__Group__1"
+
+
+    // $ANTLR start "rule__Password__Group__1__Impl"
+    // InternalSemester_Project_Dsl.g:643:1: rule__Password__Group__1__Impl : ( ( rule__Password__NameAssignment_1 ) ) ;
+    public final void rule__Password__Group__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSemester_Project_Dsl.g:647:1: ( ( ( rule__Password__NameAssignment_1 ) ) )
+            // InternalSemester_Project_Dsl.g:648:1: ( ( rule__Password__NameAssignment_1 ) )
+            {
+            // InternalSemester_Project_Dsl.g:648:1: ( ( rule__Password__NameAssignment_1 ) )
+            // InternalSemester_Project_Dsl.g:649:2: ( rule__Password__NameAssignment_1 )
+            {
+             before(grammarAccess.getPasswordAccess().getNameAssignment_1()); 
+            // InternalSemester_Project_Dsl.g:650:2: ( rule__Password__NameAssignment_1 )
+            // InternalSemester_Project_Dsl.g:650:3: rule__Password__NameAssignment_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__Password__NameAssignment_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getPasswordAccess().getNameAssignment_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Password__Group__1__Impl"
+
+
+    // $ANTLR start "rule__IP__Group__0"
+    // InternalSemester_Project_Dsl.g:659:1: rule__IP__Group__0 : rule__IP__Group__0__Impl rule__IP__Group__1 ;
+    public final void rule__IP__Group__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSemester_Project_Dsl.g:663:1: ( rule__IP__Group__0__Impl rule__IP__Group__1 )
+            // InternalSemester_Project_Dsl.g:664:2: rule__IP__Group__0__Impl rule__IP__Group__1
+            {
+            pushFollow(FOLLOW_10);
+            rule__IP__Group__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__IP__Group__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__IP__Group__0"
+
+
+    // $ANTLR start "rule__IP__Group__0__Impl"
+    // InternalSemester_Project_Dsl.g:671:1: rule__IP__Group__0__Impl : ( 'ip' ) ;
+    public final void rule__IP__Group__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSemester_Project_Dsl.g:675:1: ( ( 'ip' ) )
+            // InternalSemester_Project_Dsl.g:676:1: ( 'ip' )
+            {
+            // InternalSemester_Project_Dsl.g:676:1: ( 'ip' )
+            // InternalSemester_Project_Dsl.g:677:2: 'ip'
+            {
+             before(grammarAccess.getIPAccess().getIpKeyword_0()); 
+            match(input,17,FOLLOW_2); 
+             after(grammarAccess.getIPAccess().getIpKeyword_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__IP__Group__0__Impl"
+
+
+    // $ANTLR start "rule__IP__Group__1"
+    // InternalSemester_Project_Dsl.g:686:1: rule__IP__Group__1 : rule__IP__Group__1__Impl ;
+    public final void rule__IP__Group__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSemester_Project_Dsl.g:690:1: ( rule__IP__Group__1__Impl )
+            // InternalSemester_Project_Dsl.g:691:2: rule__IP__Group__1__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__IP__Group__1__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__IP__Group__1"
+
+
+    // $ANTLR start "rule__IP__Group__1__Impl"
+    // InternalSemester_Project_Dsl.g:697:1: rule__IP__Group__1__Impl : ( ( rule__IP__NameAssignment_1 ) ) ;
+    public final void rule__IP__Group__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSemester_Project_Dsl.g:701:1: ( ( ( rule__IP__NameAssignment_1 ) ) )
+            // InternalSemester_Project_Dsl.g:702:1: ( ( rule__IP__NameAssignment_1 ) )
+            {
+            // InternalSemester_Project_Dsl.g:702:1: ( ( rule__IP__NameAssignment_1 ) )
+            // InternalSemester_Project_Dsl.g:703:2: ( rule__IP__NameAssignment_1 )
+            {
+             before(grammarAccess.getIPAccess().getNameAssignment_1()); 
+            // InternalSemester_Project_Dsl.g:704:2: ( rule__IP__NameAssignment_1 )
+            // InternalSemester_Project_Dsl.g:704:3: rule__IP__NameAssignment_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__IP__NameAssignment_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getIPAccess().getNameAssignment_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__IP__Group__1__Impl"
 
 
     // $ANTLR start "rule__Model__NameAssignment_1"
-    // InternalSemester_Project_Dsl.g:418:1: rule__Model__NameAssignment_1 : ( RULE_ID ) ;
+    // InternalSemester_Project_Dsl.g:713:1: rule__Model__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__Model__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemester_Project_Dsl.g:422:1: ( ( RULE_ID ) )
-            // InternalSemester_Project_Dsl.g:423:2: ( RULE_ID )
+            // InternalSemester_Project_Dsl.g:717:1: ( ( RULE_ID ) )
+            // InternalSemester_Project_Dsl.g:718:2: ( RULE_ID )
             {
-            // InternalSemester_Project_Dsl.g:423:2: ( RULE_ID )
-            // InternalSemester_Project_Dsl.g:424:3: RULE_ID
+            // InternalSemester_Project_Dsl.g:718:2: ( RULE_ID )
+            // InternalSemester_Project_Dsl.g:719:3: RULE_ID
             {
              before(grammarAccess.getModelAccess().getNameIDTerminalRuleCall_1_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -1258,17 +2158,17 @@ public class InternalSemester_Project_DslParser extends AbstractInternalContentA
 
 
     // $ANTLR start "rule__Model__VariablesAssignment_2"
-    // InternalSemester_Project_Dsl.g:433:1: rule__Model__VariablesAssignment_2 : ( ruleVariable ) ;
+    // InternalSemester_Project_Dsl.g:728:1: rule__Model__VariablesAssignment_2 : ( ruleVariable ) ;
     public final void rule__Model__VariablesAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemester_Project_Dsl.g:437:1: ( ( ruleVariable ) )
-            // InternalSemester_Project_Dsl.g:438:2: ( ruleVariable )
+            // InternalSemester_Project_Dsl.g:732:1: ( ( ruleVariable ) )
+            // InternalSemester_Project_Dsl.g:733:2: ( ruleVariable )
             {
-            // InternalSemester_Project_Dsl.g:438:2: ( ruleVariable )
-            // InternalSemester_Project_Dsl.g:439:3: ruleVariable
+            // InternalSemester_Project_Dsl.g:733:2: ( ruleVariable )
+            // InternalSemester_Project_Dsl.g:734:3: ruleVariable
             {
              before(grammarAccess.getModelAccess().getVariablesVariableParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -1299,17 +2199,17 @@ public class InternalSemester_Project_DslParser extends AbstractInternalContentA
 
 
     // $ANTLR start "rule__Model__SensorsAssignment_3"
-    // InternalSemester_Project_Dsl.g:448:1: rule__Model__SensorsAssignment_3 : ( ruleSensor ) ;
+    // InternalSemester_Project_Dsl.g:743:1: rule__Model__SensorsAssignment_3 : ( ruleSensor ) ;
     public final void rule__Model__SensorsAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemester_Project_Dsl.g:452:1: ( ( ruleSensor ) )
-            // InternalSemester_Project_Dsl.g:453:2: ( ruleSensor )
+            // InternalSemester_Project_Dsl.g:747:1: ( ( ruleSensor ) )
+            // InternalSemester_Project_Dsl.g:748:2: ( ruleSensor )
             {
-            // InternalSemester_Project_Dsl.g:453:2: ( ruleSensor )
-            // InternalSemester_Project_Dsl.g:454:3: ruleSensor
+            // InternalSemester_Project_Dsl.g:748:2: ( ruleSensor )
+            // InternalSemester_Project_Dsl.g:749:3: ruleSensor
             {
              before(grammarAccess.getModelAccess().getSensorsSensorParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -1339,18 +2239,59 @@ public class InternalSemester_Project_DslParser extends AbstractInternalContentA
     // $ANTLR end "rule__Model__SensorsAssignment_3"
 
 
+    // $ANTLR start "rule__Model__CredentialsAssignment_4"
+    // InternalSemester_Project_Dsl.g:758:1: rule__Model__CredentialsAssignment_4 : ( ruleCredentials ) ;
+    public final void rule__Model__CredentialsAssignment_4() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSemester_Project_Dsl.g:762:1: ( ( ruleCredentials ) )
+            // InternalSemester_Project_Dsl.g:763:2: ( ruleCredentials )
+            {
+            // InternalSemester_Project_Dsl.g:763:2: ( ruleCredentials )
+            // InternalSemester_Project_Dsl.g:764:3: ruleCredentials
+            {
+             before(grammarAccess.getModelAccess().getCredentialsCredentialsParserRuleCall_4_0()); 
+            pushFollow(FOLLOW_2);
+            ruleCredentials();
+
+            state._fsp--;
+
+             after(grammarAccess.getModelAccess().getCredentialsCredentialsParserRuleCall_4_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Model__CredentialsAssignment_4"
+
+
     // $ANTLR start "rule__Variable__NameAssignment_1"
-    // InternalSemester_Project_Dsl.g:463:1: rule__Variable__NameAssignment_1 : ( RULE_ID ) ;
+    // InternalSemester_Project_Dsl.g:773:1: rule__Variable__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__Variable__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemester_Project_Dsl.g:467:1: ( ( RULE_ID ) )
-            // InternalSemester_Project_Dsl.g:468:2: ( RULE_ID )
+            // InternalSemester_Project_Dsl.g:777:1: ( ( RULE_ID ) )
+            // InternalSemester_Project_Dsl.g:778:2: ( RULE_ID )
             {
-            // InternalSemester_Project_Dsl.g:468:2: ( RULE_ID )
-            // InternalSemester_Project_Dsl.g:469:3: RULE_ID
+            // InternalSemester_Project_Dsl.g:778:2: ( RULE_ID )
+            // InternalSemester_Project_Dsl.g:779:3: RULE_ID
             {
              before(grammarAccess.getVariableAccess().getNameIDTerminalRuleCall_1_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -1376,22 +2317,22 @@ public class InternalSemester_Project_DslParser extends AbstractInternalContentA
     // $ANTLR end "rule__Variable__NameAssignment_1"
 
 
-    // $ANTLR start "rule__Sensor__NameAssignment_0_1"
-    // InternalSemester_Project_Dsl.g:478:1: rule__Sensor__NameAssignment_0_1 : ( RULE_ID ) ;
-    public final void rule__Sensor__NameAssignment_0_1() throws RecognitionException {
+    // $ANTLR start "rule__Sensor__NameAssignment_1"
+    // InternalSemester_Project_Dsl.g:788:1: rule__Sensor__NameAssignment_1 : ( RULE_ID ) ;
+    public final void rule__Sensor__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemester_Project_Dsl.g:482:1: ( ( RULE_ID ) )
-            // InternalSemester_Project_Dsl.g:483:2: ( RULE_ID )
+            // InternalSemester_Project_Dsl.g:792:1: ( ( RULE_ID ) )
+            // InternalSemester_Project_Dsl.g:793:2: ( RULE_ID )
             {
-            // InternalSemester_Project_Dsl.g:483:2: ( RULE_ID )
-            // InternalSemester_Project_Dsl.g:484:3: RULE_ID
+            // InternalSemester_Project_Dsl.g:793:2: ( RULE_ID )
+            // InternalSemester_Project_Dsl.g:794:3: RULE_ID
             {
-             before(grammarAccess.getSensorAccess().getNameIDTerminalRuleCall_0_1_0()); 
+             before(grammarAccess.getSensorAccess().getNameIDTerminalRuleCall_1_0()); 
             match(input,RULE_ID,FOLLOW_2); 
-             after(grammarAccess.getSensorAccess().getNameIDTerminalRuleCall_0_1_0()); 
+             after(grammarAccess.getSensorAccess().getNameIDTerminalRuleCall_1_0()); 
 
             }
 
@@ -1410,25 +2351,25 @@ public class InternalSemester_Project_DslParser extends AbstractInternalContentA
         }
         return ;
     }
-    // $ANTLR end "rule__Sensor__NameAssignment_0_1"
+    // $ANTLR end "rule__Sensor__NameAssignment_1"
 
 
-    // $ANTLR start "rule__Sensor__NameAssignment_1_1"
-    // InternalSemester_Project_Dsl.g:493:1: rule__Sensor__NameAssignment_1_1 : ( RULE_ID ) ;
-    public final void rule__Sensor__NameAssignment_1_1() throws RecognitionException {
+    // $ANTLR start "rule__Sensor__PinAssignment_3"
+    // InternalSemester_Project_Dsl.g:803:1: rule__Sensor__PinAssignment_3 : ( RULE_INT ) ;
+    public final void rule__Sensor__PinAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSemester_Project_Dsl.g:497:1: ( ( RULE_ID ) )
-            // InternalSemester_Project_Dsl.g:498:2: ( RULE_ID )
+            // InternalSemester_Project_Dsl.g:807:1: ( ( RULE_INT ) )
+            // InternalSemester_Project_Dsl.g:808:2: ( RULE_INT )
             {
-            // InternalSemester_Project_Dsl.g:498:2: ( RULE_ID )
-            // InternalSemester_Project_Dsl.g:499:3: RULE_ID
+            // InternalSemester_Project_Dsl.g:808:2: ( RULE_INT )
+            // InternalSemester_Project_Dsl.g:809:3: RULE_INT
             {
-             before(grammarAccess.getSensorAccess().getNameIDTerminalRuleCall_1_1_0()); 
-            match(input,RULE_ID,FOLLOW_2); 
-             after(grammarAccess.getSensorAccess().getNameIDTerminalRuleCall_1_1_0()); 
+             before(grammarAccess.getSensorAccess().getPinINTTerminalRuleCall_3_0()); 
+            match(input,RULE_INT,FOLLOW_2); 
+             after(grammarAccess.getSensorAccess().getPinINTTerminalRuleCall_3_0()); 
 
             }
 
@@ -1447,7 +2388,118 @@ public class InternalSemester_Project_DslParser extends AbstractInternalContentA
         }
         return ;
     }
-    // $ANTLR end "rule__Sensor__NameAssignment_1_1"
+    // $ANTLR end "rule__Sensor__PinAssignment_3"
+
+
+    // $ANTLR start "rule__SSID__NameAssignment_1"
+    // InternalSemester_Project_Dsl.g:818:1: rule__SSID__NameAssignment_1 : ( RULE_ID ) ;
+    public final void rule__SSID__NameAssignment_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSemester_Project_Dsl.g:822:1: ( ( RULE_ID ) )
+            // InternalSemester_Project_Dsl.g:823:2: ( RULE_ID )
+            {
+            // InternalSemester_Project_Dsl.g:823:2: ( RULE_ID )
+            // InternalSemester_Project_Dsl.g:824:3: RULE_ID
+            {
+             before(grammarAccess.getSSIDAccess().getNameIDTerminalRuleCall_1_0()); 
+            match(input,RULE_ID,FOLLOW_2); 
+             after(grammarAccess.getSSIDAccess().getNameIDTerminalRuleCall_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__SSID__NameAssignment_1"
+
+
+    // $ANTLR start "rule__Password__NameAssignment_1"
+    // InternalSemester_Project_Dsl.g:833:1: rule__Password__NameAssignment_1 : ( RULE_ID ) ;
+    public final void rule__Password__NameAssignment_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSemester_Project_Dsl.g:837:1: ( ( RULE_ID ) )
+            // InternalSemester_Project_Dsl.g:838:2: ( RULE_ID )
+            {
+            // InternalSemester_Project_Dsl.g:838:2: ( RULE_ID )
+            // InternalSemester_Project_Dsl.g:839:3: RULE_ID
+            {
+             before(grammarAccess.getPasswordAccess().getNameIDTerminalRuleCall_1_0()); 
+            match(input,RULE_ID,FOLLOW_2); 
+             after(grammarAccess.getPasswordAccess().getNameIDTerminalRuleCall_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Password__NameAssignment_1"
+
+
+    // $ANTLR start "rule__IP__NameAssignment_1"
+    // InternalSemester_Project_Dsl.g:848:1: rule__IP__NameAssignment_1 : ( RULE_STRING ) ;
+    public final void rule__IP__NameAssignment_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSemester_Project_Dsl.g:852:1: ( ( RULE_STRING ) )
+            // InternalSemester_Project_Dsl.g:853:2: ( RULE_STRING )
+            {
+            // InternalSemester_Project_Dsl.g:853:2: ( RULE_STRING )
+            // InternalSemester_Project_Dsl.g:854:3: RULE_STRING
+            {
+             before(grammarAccess.getIPAccess().getNameSTRINGTerminalRuleCall_1_0()); 
+            match(input,RULE_STRING,FOLLOW_2); 
+             after(grammarAccess.getIPAccess().getNameSTRINGTerminalRuleCall_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__IP__NameAssignment_1"
 
     // Delegated rules
 
@@ -1457,8 +2509,12 @@ public class InternalSemester_Project_DslParser extends AbstractInternalContentA
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000007000L});
+    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x000000000003B000L});
     public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000001002L});
-    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000006002L});
+    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000002002L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000038002L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000000040L});
 
 }

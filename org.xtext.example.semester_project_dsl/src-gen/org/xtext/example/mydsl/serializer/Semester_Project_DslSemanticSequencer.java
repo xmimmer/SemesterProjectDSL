@@ -14,7 +14,10 @@ import org.eclipse.xtext.serializer.ISerializationContext;
 import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
+import org.xtext.example.mydsl.semester_Project_Dsl.IP;
 import org.xtext.example.mydsl.semester_Project_Dsl.Model;
+import org.xtext.example.mydsl.semester_Project_Dsl.Password;
+import org.xtext.example.mydsl.semester_Project_Dsl.SSID;
 import org.xtext.example.mydsl.semester_Project_Dsl.Semester_Project_DslPackage;
 import org.xtext.example.mydsl.semester_Project_Dsl.Sensor;
 import org.xtext.example.mydsl.semester_Project_Dsl.Variable;
@@ -34,8 +37,17 @@ public class Semester_Project_DslSemanticSequencer extends AbstractDelegatingSem
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == Semester_Project_DslPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
+			case Semester_Project_DslPackage.IP:
+				sequence_IP(context, (IP) semanticObject); 
+				return; 
 			case Semester_Project_DslPackage.MODEL:
 				sequence_Model(context, (Model) semanticObject); 
+				return; 
+			case Semester_Project_DslPackage.PASSWORD:
+				sequence_Password(context, (Password) semanticObject); 
+				return; 
+			case Semester_Project_DslPackage.SSID:
+				sequence_SSID(context, (SSID) semanticObject); 
 				return; 
 			case Semester_Project_DslPackage.SENSOR:
 				sequence_Sensor(context, (Sensor) semanticObject); 
@@ -51,10 +63,31 @@ public class Semester_Project_DslSemanticSequencer extends AbstractDelegatingSem
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     Credentials returns IP
+	 *     IP returns IP
+	 *
+	 * Constraint:
+	 *     name=STRING
+	 * </pre>
+	 */
+	protected void sequence_IP(ISerializationContext context, IP semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, Semester_Project_DslPackage.Literals.CREDENTIALS__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, Semester_Project_DslPackage.Literals.CREDENTIALS__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getIPAccess().getNameSTRINGTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     Model returns Model
 	 *
 	 * Constraint:
-	 *     (name=ID variables+=Variable* sensors+=Sensor*)
+	 *     (name=ID variables+=Variable* sensors+=Sensor* credentials+=Credentials*)
 	 * </pre>
 	 */
 	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
@@ -65,14 +98,65 @@ public class Semester_Project_DslSemanticSequencer extends AbstractDelegatingSem
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     Credentials returns Password
+	 *     Password returns Password
+	 *
+	 * Constraint:
+	 *     name=ID
+	 * </pre>
+	 */
+	protected void sequence_Password(ISerializationContext context, Password semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, Semester_Project_DslPackage.Literals.CREDENTIALS__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, Semester_Project_DslPackage.Literals.CREDENTIALS__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getPasswordAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Credentials returns SSID
+	 *     SSID returns SSID
+	 *
+	 * Constraint:
+	 *     name=ID
+	 * </pre>
+	 */
+	protected void sequence_SSID(ISerializationContext context, SSID semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, Semester_Project_DslPackage.Literals.CREDENTIALS__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, Semester_Project_DslPackage.Literals.CREDENTIALS__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getSSIDAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     Sensor returns Sensor
 	 *
 	 * Constraint:
-	 *     (name=ID | name=ID)
+	 *     (name=ID pin=INT)
 	 * </pre>
 	 */
 	protected void sequence_Sensor(ISerializationContext context, Sensor semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, Semester_Project_DslPackage.Literals.SENSOR__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, Semester_Project_DslPackage.Literals.SENSOR__NAME));
+			if (transientValues.isValueTransient(semanticObject, Semester_Project_DslPackage.Literals.SENSOR__PIN) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, Semester_Project_DslPackage.Literals.SENSOR__PIN));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getSensorAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getSensorAccess().getPinINTTerminalRuleCall_3_0(), semanticObject.getPin());
+		feeder.finish();
 	}
 	
 	

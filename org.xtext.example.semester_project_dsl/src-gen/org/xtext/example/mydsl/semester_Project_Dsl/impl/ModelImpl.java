@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.xtext.example.mydsl.semester_Project_Dsl.Credentials;
 import org.xtext.example.mydsl.semester_Project_Dsl.Model;
 import org.xtext.example.mydsl.semester_Project_Dsl.Semester_Project_DslPackage;
 import org.xtext.example.mydsl.semester_Project_Dsl.Sensor;
@@ -35,6 +36,7 @@ import org.xtext.example.mydsl.semester_Project_Dsl.Variable;
  *   <li>{@link org.xtext.example.mydsl.semester_Project_Dsl.impl.ModelImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.semester_Project_Dsl.impl.ModelImpl#getVariables <em>Variables</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.semester_Project_Dsl.impl.ModelImpl#getSensors <em>Sensors</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.semester_Project_Dsl.impl.ModelImpl#getCredentials <em>Credentials</em>}</li>
  * </ul>
  *
  * @generated
@@ -80,6 +82,16 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * @ordered
    */
   protected EList<Sensor> sensors;
+
+  /**
+   * The cached value of the '{@link #getCredentials() <em>Credentials</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getCredentials()
+   * @generated
+   * @ordered
+   */
+  protected EList<Credentials> credentials;
 
   /**
    * <!-- begin-user-doc -->
@@ -163,6 +175,21 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * @generated
    */
   @Override
+  public EList<Credentials> getCredentials()
+  {
+    if (credentials == null)
+    {
+      credentials = new EObjectContainmentEList<Credentials>(Credentials.class, this, Semester_Project_DslPackage.MODEL__CREDENTIALS);
+    }
+    return credentials;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
@@ -171,6 +198,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         return ((InternalEList<?>)getVariables()).basicRemove(otherEnd, msgs);
       case Semester_Project_DslPackage.MODEL__SENSORS:
         return ((InternalEList<?>)getSensors()).basicRemove(otherEnd, msgs);
+      case Semester_Project_DslPackage.MODEL__CREDENTIALS:
+        return ((InternalEList<?>)getCredentials()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -191,6 +220,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         return getVariables();
       case Semester_Project_DslPackage.MODEL__SENSORS:
         return getSensors();
+      case Semester_Project_DslPackage.MODEL__CREDENTIALS:
+        return getCredentials();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -217,6 +248,10 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         getSensors().clear();
         getSensors().addAll((Collection<? extends Sensor>)newValue);
         return;
+      case Semester_Project_DslPackage.MODEL__CREDENTIALS:
+        getCredentials().clear();
+        getCredentials().addAll((Collection<? extends Credentials>)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -240,6 +275,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
       case Semester_Project_DslPackage.MODEL__SENSORS:
         getSensors().clear();
         return;
+      case Semester_Project_DslPackage.MODEL__CREDENTIALS:
+        getCredentials().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -260,6 +298,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         return variables != null && !variables.isEmpty();
       case Semester_Project_DslPackage.MODEL__SENSORS:
         return sensors != null && !sensors.isEmpty();
+      case Semester_Project_DslPackage.MODEL__CREDENTIALS:
+        return credentials != null && !credentials.isEmpty();
     }
     return super.eIsSet(featureID);
   }

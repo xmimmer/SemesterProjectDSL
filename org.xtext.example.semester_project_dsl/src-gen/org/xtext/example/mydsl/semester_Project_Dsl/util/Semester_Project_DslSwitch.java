@@ -94,6 +94,37 @@ public class Semester_Project_DslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case Semester_Project_DslPackage.CREDENTIALS:
+      {
+        Credentials credentials = (Credentials)theEObject;
+        T result = caseCredentials(credentials);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case Semester_Project_DslPackage.SSID:
+      {
+        SSID ssid = (SSID)theEObject;
+        T result = caseSSID(ssid);
+        if (result == null) result = caseCredentials(ssid);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case Semester_Project_DslPackage.PASSWORD:
+      {
+        Password password = (Password)theEObject;
+        T result = casePassword(password);
+        if (result == null) result = caseCredentials(password);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case Semester_Project_DslPackage.IP:
+      {
+        IP ip = (IP)theEObject;
+        T result = caseIP(ip);
+        if (result == null) result = caseCredentials(ip);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       default: return defaultCase(theEObject);
     }
   }
@@ -142,6 +173,70 @@ public class Semester_Project_DslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseSensor(Sensor object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Credentials</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Credentials</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCredentials(Credentials object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>SSID</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>SSID</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSSID(SSID object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Password</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Password</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePassword(Password object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>IP</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>IP</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseIP(IP object)
   {
     return null;
   }

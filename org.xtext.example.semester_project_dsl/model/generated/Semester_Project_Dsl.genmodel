@@ -10,12 +10,20 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Semester_Project_Dsl.ecore#//Model/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Semester_Project_Dsl.ecore#//Model/variables"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Semester_Project_Dsl.ecore#//Model/sensors"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Semester_Project_Dsl.ecore#//Model/credentials"/>
     </genClasses>
     <genClasses ecoreClass="Semester_Project_Dsl.ecore#//Variable">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Semester_Project_Dsl.ecore#//Variable/name"/>
     </genClasses>
     <genClasses ecoreClass="Semester_Project_Dsl.ecore#//Sensor">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Semester_Project_Dsl.ecore#//Sensor/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Semester_Project_Dsl.ecore#//Sensor/pin"/>
     </genClasses>
+    <genClasses ecoreClass="Semester_Project_Dsl.ecore#//Credentials">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Semester_Project_Dsl.ecore#//Credentials/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Semester_Project_Dsl.ecore#//SSID"/>
+    <genClasses ecoreClass="Semester_Project_Dsl.ecore#//Password"/>
+    <genClasses ecoreClass="Semester_Project_Dsl.ecore#//IP"/>
   </genPackages>
 </genmodel:GenModel>

@@ -136,6 +136,25 @@ ruleModel returns [EObject current=null]
 				}
 			)
 		)*
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getModelAccess().getCredentialsCredentialsParserRuleCall_4_0());
+				}
+				lv_credentials_4_0=ruleCredentials
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getModelRule());
+					}
+					add(
+						$current,
+						"credentials",
+						lv_credentials_4_0,
+						"org.xtext.example.mydsl.Semester_Project_Dsl.Credentials");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
 	)
 ;
 
@@ -196,53 +215,216 @@ ruleSensor returns [EObject current=null]
 	leaveRule();
 }:
 	(
+		otherlv_0='sensor'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getSensorAccess().getSensorKeyword_0());
+		}
 		(
-			otherlv_0='CO2'
-			{
-				newLeafNode(otherlv_0, grammarAccess.getSensorAccess().getCO2Keyword_0_0());
-			}
 			(
-				(
-					lv_name_1_0=RULE_ID
-					{
-						newLeafNode(lv_name_1_0, grammarAccess.getSensorAccess().getNameIDTerminalRuleCall_0_1_0());
+				lv_name_1_0=RULE_ID
+				{
+					newLeafNode(lv_name_1_0, grammarAccess.getSensorAccess().getNameIDTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getSensorRule());
 					}
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getSensorRule());
-						}
-						setWithLastConsumed(
-							$current,
-							"name",
-							lv_name_1_0,
-							"org.eclipse.xtext.common.Terminals.ID");
-					}
-				)
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_1_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
 			)
 		)
-		    |
+		otherlv_2=','
+		{
+			newLeafNode(otherlv_2, grammarAccess.getSensorAccess().getCommaKeyword_2());
+		}
 		(
-			otherlv_2='CO'
-			{
-				newLeafNode(otherlv_2, grammarAccess.getSensorAccess().getCOKeyword_1_0());
-			}
 			(
-				(
-					lv_name_3_0=RULE_ID
-					{
-						newLeafNode(lv_name_3_0, grammarAccess.getSensorAccess().getNameIDTerminalRuleCall_1_1_0());
+				lv_pin_3_0=RULE_INT
+				{
+					newLeafNode(lv_pin_3_0, grammarAccess.getSensorAccess().getPinINTTerminalRuleCall_3_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getSensorRule());
 					}
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getSensorRule());
-						}
-						setWithLastConsumed(
-							$current,
-							"name",
-							lv_name_3_0,
-							"org.eclipse.xtext.common.Terminals.ID");
+					setWithLastConsumed(
+						$current,
+						"pin",
+						lv_pin_3_0,
+						"org.eclipse.xtext.common.Terminals.INT");
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleCredentials
+entryRuleCredentials returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getCredentialsRule()); }
+	iv_ruleCredentials=ruleCredentials
+	{ $current=$iv_ruleCredentials.current; }
+	EOF;
+
+// Rule Credentials
+ruleCredentials returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		{
+			newCompositeNode(grammarAccess.getCredentialsAccess().getSSIDParserRuleCall_0());
+		}
+		this_SSID_0=ruleSSID
+		{
+			$current = $this_SSID_0.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getCredentialsAccess().getPasswordParserRuleCall_1());
+		}
+		this_Password_1=rulePassword
+		{
+			$current = $this_Password_1.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getCredentialsAccess().getIPParserRuleCall_2());
+		}
+		this_IP_2=ruleIP
+		{
+			$current = $this_IP_2.current;
+			afterParserOrEnumRuleCall();
+		}
+	)
+;
+
+// Entry rule entryRuleSSID
+entryRuleSSID returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getSSIDRule()); }
+	iv_ruleSSID=ruleSSID
+	{ $current=$iv_ruleSSID.current; }
+	EOF;
+
+// Rule SSID
+ruleSSID returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='ssid'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getSSIDAccess().getSsidKeyword_0());
+		}
+		(
+			(
+				lv_name_1_0=RULE_ID
+				{
+					newLeafNode(lv_name_1_0, grammarAccess.getSSIDAccess().getNameIDTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getSSIDRule());
 					}
-				)
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_1_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRulePassword
+entryRulePassword returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getPasswordRule()); }
+	iv_rulePassword=rulePassword
+	{ $current=$iv_rulePassword.current; }
+	EOF;
+
+// Rule Password
+rulePassword returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='password'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getPasswordAccess().getPasswordKeyword_0());
+		}
+		(
+			(
+				lv_name_1_0=RULE_ID
+				{
+					newLeafNode(lv_name_1_0, grammarAccess.getPasswordAccess().getNameIDTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getPasswordRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_1_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleIP
+entryRuleIP returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getIPRule()); }
+	iv_ruleIP=ruleIP
+	{ $current=$iv_ruleIP.current; }
+	EOF;
+
+// Rule IP
+ruleIP returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='ip'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getIPAccess().getIpKeyword_0());
+		}
+		(
+			(
+				lv_name_1_0=RULE_STRING
+				{
+					newLeafNode(lv_name_1_0, grammarAccess.getIPAccess().getNameSTRINGTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getIPRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_1_0,
+						"org.eclipse.xtext.common.Terminals.STRING");
+				}
 			)
 		)
 	)

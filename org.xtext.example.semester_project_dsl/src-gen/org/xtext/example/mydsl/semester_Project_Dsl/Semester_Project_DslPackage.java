@@ -95,13 +95,22 @@ public interface Semester_Project_DslPackage extends EPackage
   int MODEL__SENSORS = 2;
 
   /**
+   * The feature id for the '<em><b>Credentials</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL__CREDENTIALS = 3;
+
+  /**
    * The number of structural features of the '<em>Model</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL_FEATURE_COUNT = 3;
+  int MODEL_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.semester_Project_Dsl.impl.VariableImpl <em>Variable</em>}' class.
@@ -151,13 +160,134 @@ public interface Semester_Project_DslPackage extends EPackage
   int SENSOR__NAME = 0;
 
   /**
+   * The feature id for the '<em><b>Pin</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SENSOR__PIN = 1;
+
+  /**
    * The number of structural features of the '<em>Sensor</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SENSOR_FEATURE_COUNT = 1;
+  int SENSOR_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.semester_Project_Dsl.impl.CredentialsImpl <em>Credentials</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.semester_Project_Dsl.impl.CredentialsImpl
+   * @see org.xtext.example.mydsl.semester_Project_Dsl.impl.Semester_Project_DslPackageImpl#getCredentials()
+   * @generated
+   */
+  int CREDENTIALS = 3;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CREDENTIALS__NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Credentials</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CREDENTIALS_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.semester_Project_Dsl.impl.SSIDImpl <em>SSID</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.semester_Project_Dsl.impl.SSIDImpl
+   * @see org.xtext.example.mydsl.semester_Project_Dsl.impl.Semester_Project_DslPackageImpl#getSSID()
+   * @generated
+   */
+  int SSID = 4;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SSID__NAME = CREDENTIALS__NAME;
+
+  /**
+   * The number of structural features of the '<em>SSID</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SSID_FEATURE_COUNT = CREDENTIALS_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.semester_Project_Dsl.impl.PasswordImpl <em>Password</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.semester_Project_Dsl.impl.PasswordImpl
+   * @see org.xtext.example.mydsl.semester_Project_Dsl.impl.Semester_Project_DslPackageImpl#getPassword()
+   * @generated
+   */
+  int PASSWORD = 5;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PASSWORD__NAME = CREDENTIALS__NAME;
+
+  /**
+   * The number of structural features of the '<em>Password</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PASSWORD_FEATURE_COUNT = CREDENTIALS_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.semester_Project_Dsl.impl.IPImpl <em>IP</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.semester_Project_Dsl.impl.IPImpl
+   * @see org.xtext.example.mydsl.semester_Project_Dsl.impl.Semester_Project_DslPackageImpl#getIP()
+   * @generated
+   */
+  int IP = 6;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IP__NAME = CREDENTIALS__NAME;
+
+  /**
+   * The number of structural features of the '<em>IP</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IP_FEATURE_COUNT = CREDENTIALS_FEATURE_COUNT + 0;
 
 
   /**
@@ -204,6 +334,17 @@ public interface Semester_Project_DslPackage extends EPackage
   EReference getModel_Sensors();
 
   /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.semester_Project_Dsl.Model#getCredentials <em>Credentials</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Credentials</em>'.
+   * @see org.xtext.example.mydsl.semester_Project_Dsl.Model#getCredentials()
+   * @see #getModel()
+   * @generated
+   */
+  EReference getModel_Credentials();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.semester_Project_Dsl.Variable <em>Variable</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -244,6 +385,68 @@ public interface Semester_Project_DslPackage extends EPackage
    * @generated
    */
   EAttribute getSensor_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.semester_Project_Dsl.Sensor#getPin <em>Pin</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Pin</em>'.
+   * @see org.xtext.example.mydsl.semester_Project_Dsl.Sensor#getPin()
+   * @see #getSensor()
+   * @generated
+   */
+  EAttribute getSensor_Pin();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.semester_Project_Dsl.Credentials <em>Credentials</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Credentials</em>'.
+   * @see org.xtext.example.mydsl.semester_Project_Dsl.Credentials
+   * @generated
+   */
+  EClass getCredentials();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.semester_Project_Dsl.Credentials#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.example.mydsl.semester_Project_Dsl.Credentials#getName()
+   * @see #getCredentials()
+   * @generated
+   */
+  EAttribute getCredentials_Name();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.semester_Project_Dsl.SSID <em>SSID</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>SSID</em>'.
+   * @see org.xtext.example.mydsl.semester_Project_Dsl.SSID
+   * @generated
+   */
+  EClass getSSID();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.semester_Project_Dsl.Password <em>Password</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Password</em>'.
+   * @see org.xtext.example.mydsl.semester_Project_Dsl.Password
+   * @generated
+   */
+  EClass getPassword();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.semester_Project_Dsl.IP <em>IP</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>IP</em>'.
+   * @see org.xtext.example.mydsl.semester_Project_Dsl.IP
+   * @generated
+   */
+  EClass getIP();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -303,6 +506,14 @@ public interface Semester_Project_DslPackage extends EPackage
     EReference MODEL__SENSORS = eINSTANCE.getModel_Sensors();
 
     /**
+     * The meta object literal for the '<em><b>Credentials</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MODEL__CREDENTIALS = eINSTANCE.getModel_Credentials();
+
+    /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.semester_Project_Dsl.impl.VariableImpl <em>Variable</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -337,6 +548,62 @@ public interface Semester_Project_DslPackage extends EPackage
      * @generated
      */
     EAttribute SENSOR__NAME = eINSTANCE.getSensor_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Pin</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SENSOR__PIN = eINSTANCE.getSensor_Pin();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.semester_Project_Dsl.impl.CredentialsImpl <em>Credentials</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.semester_Project_Dsl.impl.CredentialsImpl
+     * @see org.xtext.example.mydsl.semester_Project_Dsl.impl.Semester_Project_DslPackageImpl#getCredentials()
+     * @generated
+     */
+    EClass CREDENTIALS = eINSTANCE.getCredentials();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CREDENTIALS__NAME = eINSTANCE.getCredentials_Name();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.semester_Project_Dsl.impl.SSIDImpl <em>SSID</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.semester_Project_Dsl.impl.SSIDImpl
+     * @see org.xtext.example.mydsl.semester_Project_Dsl.impl.Semester_Project_DslPackageImpl#getSSID()
+     * @generated
+     */
+    EClass SSID = eINSTANCE.getSSID();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.semester_Project_Dsl.impl.PasswordImpl <em>Password</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.semester_Project_Dsl.impl.PasswordImpl
+     * @see org.xtext.example.mydsl.semester_Project_Dsl.impl.Semester_Project_DslPackageImpl#getPassword()
+     * @generated
+     */
+    EClass PASSWORD = eINSTANCE.getPassword();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.semester_Project_Dsl.impl.IPImpl <em>IP</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.semester_Project_Dsl.impl.IPImpl
+     * @see org.xtext.example.mydsl.semester_Project_Dsl.impl.Semester_Project_DslPackageImpl#getIP()
+     * @generated
+     */
+    EClass IP = eINSTANCE.getIP();
 
   }
 

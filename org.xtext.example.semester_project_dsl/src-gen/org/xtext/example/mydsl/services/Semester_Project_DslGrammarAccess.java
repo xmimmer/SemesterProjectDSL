@@ -32,12 +32,14 @@ public class Semester_Project_DslGrammarAccess extends AbstractElementFinder.Abs
 		private final RuleCall cVariablesVariableParserRuleCall_2_0 = (RuleCall)cVariablesAssignment_2.eContents().get(0);
 		private final Assignment cSensorsAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cSensorsSensorParserRuleCall_3_0 = (RuleCall)cSensorsAssignment_3.eContents().get(0);
+		private final Assignment cCredentialsAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cCredentialsCredentialsParserRuleCall_4_0 = (RuleCall)cCredentialsAssignment_4.eContents().get(0);
 		
 		//Model:
-		//    'Program' name=ID variables+=Variable* sensors+=Sensor*;
+		//    'Program' name=ID variables+=Variable* sensors+=Sensor* credentials+=Credentials*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Program' name=ID variables+=Variable* sensors+=Sensor*
+		//'Program' name=ID variables+=Variable* sensors+=Sensor* credentials+=Credentials*
 		public Group getGroup() { return cGroup; }
 		
 		//'Program'
@@ -60,6 +62,12 @@ public class Semester_Project_DslGrammarAccess extends AbstractElementFinder.Abs
 		
 		//Sensor
 		public RuleCall getSensorsSensorParserRuleCall_3_0() { return cSensorsSensorParserRuleCall_3_0; }
+		
+		//credentials+=Credentials*
+		public Assignment getCredentialsAssignment_4() { return cCredentialsAssignment_4; }
+		
+		//Credentials
+		public RuleCall getCredentialsCredentialsParserRuleCall_4_0() { return cCredentialsCredentialsParserRuleCall_4_0; }
 	}
 	public class VariableElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Semester_Project_Dsl.Variable");
@@ -87,53 +95,145 @@ public class Semester_Project_DslGrammarAccess extends AbstractElementFinder.Abs
 	}
 	public class SensorElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Semester_Project_Dsl.Sensor");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
-		private final Keyword cCO2Keyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
-		private final Assignment cNameAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_0_1_0 = (RuleCall)cNameAssignment_0_1.eContents().get(0);
-		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
-		private final Keyword cCOKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Assignment cNameAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_1_0 = (RuleCall)cNameAssignment_1_1.eContents().get(0);
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cSensorKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cCommaKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cPinAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cPinINTTerminalRuleCall_3_0 = (RuleCall)cPinAssignment_3.eContents().get(0);
 		
 		//Sensor:
-		//    'CO2' name=ID | 'CO' name=ID
+		//    'sensor' name=ID',' pin=INT
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'CO2' name=ID | 'CO' name=ID
+		//'sensor' name=ID',' pin=INT
+		public Group getGroup() { return cGroup; }
+		
+		//'sensor'
+		public Keyword getSensorKeyword_0() { return cSensorKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//','
+		public Keyword getCommaKeyword_2() { return cCommaKeyword_2; }
+		
+		//pin=INT
+		public Assignment getPinAssignment_3() { return cPinAssignment_3; }
+		
+		//INT
+		public RuleCall getPinINTTerminalRuleCall_3_0() { return cPinINTTerminalRuleCall_3_0; }
+	}
+	public class CredentialsElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Semester_Project_Dsl.Credentials");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cSSIDParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cPasswordParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cIPParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		
+		//Credentials:
+		//    SSID | Password | IP
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//SSID | Password | IP
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//'CO2' name=ID
-		public Group getGroup_0() { return cGroup_0; }
+		//SSID
+		public RuleCall getSSIDParserRuleCall_0() { return cSSIDParserRuleCall_0; }
 		
-		//'CO2'
-		public Keyword getCO2Keyword_0_0() { return cCO2Keyword_0_0; }
+		//Password
+		public RuleCall getPasswordParserRuleCall_1() { return cPasswordParserRuleCall_1; }
+		
+		//IP
+		public RuleCall getIPParserRuleCall_2() { return cIPParserRuleCall_2; }
+	}
+	public class SSIDElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Semester_Project_Dsl.SSID");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cSsidKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		
+		//SSID:
+		//    'ssid' name=ID
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'ssid' name=ID
+		public Group getGroup() { return cGroup; }
+		
+		//'ssid'
+		public Keyword getSsidKeyword_0() { return cSsidKeyword_0; }
 		
 		//name=ID
-		public Assignment getNameAssignment_0_1() { return cNameAssignment_0_1; }
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 		
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_0_1_0() { return cNameIDTerminalRuleCall_0_1_0; }
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+	}
+	public class PasswordElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Semester_Project_Dsl.Password");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cPasswordKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		
-		//'CO' name=ID
-		public Group getGroup_1() { return cGroup_1; }
+		//Password:
+		//    'password' name=ID
+		//;
+		@Override public ParserRule getRule() { return rule; }
 		
-		//'CO'
-		public Keyword getCOKeyword_1_0() { return cCOKeyword_1_0; }
+		//'password' name=ID
+		public Group getGroup() { return cGroup; }
+		
+		//'password'
+		public Keyword getPasswordKeyword_0() { return cPasswordKeyword_0; }
 		
 		//name=ID
-		public Assignment getNameAssignment_1_1() { return cNameAssignment_1_1; }
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 		
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_1_0() { return cNameIDTerminalRuleCall_1_1_0; }
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+	}
+	public class IPElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Semester_Project_Dsl.IP");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cIpKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameSTRINGTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		
+		//IP:
+		//    'ip' name=STRING
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'ip' name=STRING
+		public Group getGroup() { return cGroup; }
+		
+		//'ip'
+		public Keyword getIpKeyword_0() { return cIpKeyword_0; }
+		
+		//name=STRING
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//STRING
+		public RuleCall getNameSTRINGTerminalRuleCall_1_0() { return cNameSTRINGTerminalRuleCall_1_0; }
 	}
 	
 	
 	private final ModelElements pModel;
 	private final VariableElements pVariable;
 	private final SensorElements pSensor;
+	private final CredentialsElements pCredentials;
+	private final SSIDElements pSSID;
+	private final PasswordElements pPassword;
+	private final IPElements pIP;
 	
 	private final Grammar grammar;
 	
@@ -147,6 +247,10 @@ public class Semester_Project_DslGrammarAccess extends AbstractElementFinder.Abs
 		this.pModel = new ModelElements();
 		this.pVariable = new VariableElements();
 		this.pSensor = new SensorElements();
+		this.pCredentials = new CredentialsElements();
+		this.pSSID = new SSIDElements();
+		this.pPassword = new PasswordElements();
+		this.pIP = new IPElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -177,7 +281,7 @@ public class Semester_Project_DslGrammarAccess extends AbstractElementFinder.Abs
 
 	
 	//Model:
-	//    'Program' name=ID variables+=Variable* sensors+=Sensor*;
+	//    'Program' name=ID variables+=Variable* sensors+=Sensor* credentials+=Credentials*;
 	public ModelElements getModelAccess() {
 		return pModel;
 	}
@@ -198,7 +302,7 @@ public class Semester_Project_DslGrammarAccess extends AbstractElementFinder.Abs
 	}
 	
 	//Sensor:
-	//    'CO2' name=ID | 'CO' name=ID
+	//    'sensor' name=ID',' pin=INT
 	//;
 	public SensorElements getSensorAccess() {
 		return pSensor;
@@ -206,6 +310,50 @@ public class Semester_Project_DslGrammarAccess extends AbstractElementFinder.Abs
 	
 	public ParserRule getSensorRule() {
 		return getSensorAccess().getRule();
+	}
+	
+	//Credentials:
+	//    SSID | Password | IP
+	//;
+	public CredentialsElements getCredentialsAccess() {
+		return pCredentials;
+	}
+	
+	public ParserRule getCredentialsRule() {
+		return getCredentialsAccess().getRule();
+	}
+	
+	//SSID:
+	//    'ssid' name=ID
+	//;
+	public SSIDElements getSSIDAccess() {
+		return pSSID;
+	}
+	
+	public ParserRule getSSIDRule() {
+		return getSSIDAccess().getRule();
+	}
+	
+	//Password:
+	//    'password' name=ID
+	//;
+	public PasswordElements getPasswordAccess() {
+		return pPassword;
+	}
+	
+	public ParserRule getPasswordRule() {
+		return getPasswordAccess().getRule();
+	}
+	
+	//IP:
+	//    'ip' name=STRING
+	//;
+	public IPElements getIPAccess() {
+		return pIP;
+	}
+	
+	public ParserRule getIPRule() {
+		return getIPAccess().getRule();
 	}
 	
 	//terminal ID: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;

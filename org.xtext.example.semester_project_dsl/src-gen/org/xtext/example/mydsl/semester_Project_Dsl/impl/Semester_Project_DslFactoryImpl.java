@@ -68,6 +68,10 @@ public class Semester_Project_DslFactoryImpl extends EFactoryImpl implements Sem
       case Semester_Project_DslPackage.MODEL: return createModel();
       case Semester_Project_DslPackage.VARIABLE: return createVariable();
       case Semester_Project_DslPackage.SENSOR: return createSensor();
+      case Semester_Project_DslPackage.CREDENTIALS: return createCredentials();
+      case Semester_Project_DslPackage.SSID: return createSSID();
+      case Semester_Project_DslPackage.PASSWORD: return createPassword();
+      case Semester_Project_DslPackage.IP: return createIP();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -107,6 +111,54 @@ public class Semester_Project_DslFactoryImpl extends EFactoryImpl implements Sem
   {
     SensorImpl sensor = new SensorImpl();
     return sensor;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Credentials createCredentials()
+  {
+    CredentialsImpl credentials = new CredentialsImpl();
+    return credentials;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SSID createSSID()
+  {
+    SSIDImpl ssid = new SSIDImpl();
+    return ssid;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Password createPassword()
+  {
+    PasswordImpl password = new PasswordImpl();
+    return password;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public IP createIP()
+  {
+    IPImpl ip = new IPImpl();
+    return ip;
   }
 
   /**

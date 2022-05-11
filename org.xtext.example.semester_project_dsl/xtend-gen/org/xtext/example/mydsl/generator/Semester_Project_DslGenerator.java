@@ -10,9 +10,12 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.xtext.example.mydsl.semester_Project_Dsl.Credentials;
+import org.xtext.example.mydsl.semester_Project_Dsl.IP;
 import org.xtext.example.mydsl.semester_Project_Dsl.Model;
+import org.xtext.example.mydsl.semester_Project_Dsl.Password;
+import org.xtext.example.mydsl.semester_Project_Dsl.SSID;
 import org.xtext.example.mydsl.semester_Project_Dsl.Sensor;
-import org.xtext.example.mydsl.semester_Project_Dsl.Variable;
 
 /**
  * Generates code from your model files on save.
@@ -29,51 +32,581 @@ public class Semester_Project_DslGenerator extends AbstractGenerator {
   
   public CharSequence compile(final Model m) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("#include <Arduino.h>");
+    _builder.append("\t");
+    _builder.append("#include <WiFi.h>");
     _builder.newLine();
-    _builder.append("#include <SensirionI2CScd4x.h>");
+    _builder.append("\t");
+    _builder.append("#include <PubSubClient.h>");
     _builder.newLine();
+    _builder.append("\t");
     _builder.append("#include <Wire.h>");
     _builder.newLine();
+    _builder.append("\t");
+    _builder.append("#include <Arduino.h>");
     _builder.newLine();
-    _builder.append("SensirionI2CScd4x scd4x;");
+    _builder.append("\t");
+    _builder.append("#include <U8g2lib.h>");
     _builder.newLine();
+    _builder.append("\t");
     _builder.newLine();
+    _builder.append("\t");
+    _builder.append("// Replace the next variables with your SSID/Password combination");
+    _builder.newLine();
+    _builder.append("\t");
     {
-      EList<Variable> _variables = m.getVariables();
-      for(final Variable e : _variables) {
-        _builder.append("Variable name = ");
-        String _name = e.getName();
-        _builder.append(_name);
+      EList<Credentials> _credentials = m.getCredentials();
+      boolean _hasElements = false;
+      for(final Credentials c : _credentials) {
+        if (!_hasElements) {
+          _hasElements = true;
+        } else {
+          _builder.appendImmediate("\n", "\t");
+        }
+        String _generateCredentials = this.generateCredentials(c);
+        _builder.append(_generateCredentials, "\t");
         _builder.append(";");
-        _builder.newLineIfNotEmpty();
       }
     }
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("WiFiClient espClient;");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("PubSubClient client(espClient);");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("long lastMsg = 0;");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("char msg[50];");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("int value = 0;");
+    _builder.newLine();
+    _builder.append("\t");
     {
       EList<Sensor> _sensors = m.getSensors();
-      for(final Sensor e_1 : _sensors) {
-        _builder.append("int ");
-        String _name_1 = e_1.getName();
-        _builder.append(_name_1);
+      boolean _hasElements_1 = false;
+      for(final Sensor s : _sensors) {
+        if (!_hasElements_1) {
+          _hasElements_1 = true;
+        } else {
+          _builder.appendImmediate("\n", "\t");
+        }
+        _builder.append("const int ");
+        String _name = s.getName();
+        _builder.append(_name, "\t");
+        _builder.append("Pin = ");
+        String _string = Integer.valueOf(s.getPin()).toString();
+        _builder.append(_string, "\t");
         _builder.append(";");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("// starting value for potentiometer");
+    _builder.newLine();
+    _builder.append("\t");
+    {
+      EList<Sensor> _sensors_1 = m.getSensors();
+      boolean _hasElements_2 = false;
+      for(final Sensor s_1 : _sensors_1) {
+        if (!_hasElements_2) {
+          _hasElements_2 = true;
+        } else {
+          _builder.appendImmediate("\n", "\t");
+        }
+        _builder.append("int ");
+        String _name_1 = s_1.getName();
+        _builder.append(_name_1, "\t");
+        _builder.append("Value = 0;");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    {
+      EList<Sensor> _sensors_2 = m.getSensors();
+      boolean _hasElements_3 = false;
+      for(final Sensor s_2 : _sensors_2) {
+        if (!_hasElements_3) {
+          _hasElements_3 = true;
+        } else {
+          _builder.appendImmediate("\n", "\t");
+        }
+        _builder.append("String ");
+        String _name_2 = s_2.getName();
+        _builder.append(_name_2, "\t");
+        _builder.append("String = \"");
+        String _name_3 = s_2.getName();
+        _builder.append(_name_3, "\t");
+        _builder.append(": \"");
+      }
+    }
+    _builder.append(";");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    {
+      EList<Sensor> _sensors_3 = m.getSensors();
+      boolean _hasElements_4 = false;
+      for(final Sensor s_3 : _sensors_3) {
+        if (!_hasElements_4) {
+          _hasElements_4 = true;
+        } else {
+          _builder.appendImmediate("\n", "\t");
+        }
+        _builder.append("String ");
+        String _name_4 = s_3.getName();
+        _builder.append(_name_4, "\t");
+        _builder.append("PrintString = \"\";");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("U8G2_SSD1306_128X64_NONAME_F_HW_I2C u8g2(U8G2_R0, /* clock=*/ SCL, /* data=*/ SDA, /* reset=*/ U8X8_PIN_NONE);  // High speed I2C");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("void setup() {");
+    _builder.newLine();
+    _builder.append("\t  ");
+    _builder.append("Serial.begin(115200);");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t  ");
+    _builder.append("u8g2.begin();");
+    _builder.newLine();
+    _builder.append("\t  ");
+    _builder.append("u8g2.setFontPosTop();");
+    _builder.newLine();
+    _builder.append("\t  ");
+    _builder.append("u8g2.setFont(u8g2_font_ncenB10_tr);");
+    _builder.newLine();
+    _builder.append("\t  ");
+    _builder.newLine();
+    _builder.append("\t  ");
+    _builder.append("setup_wifi();");
+    _builder.newLine();
+    _builder.append("\t  ");
+    _builder.append("client.setServer(mqtt_server, 1883);");
+    _builder.newLine();
+    _builder.append("\t  ");
+    _builder.append("client.setCallback(callback);");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("void setup_wifi() {");
+    _builder.newLine();
+    _builder.append("\t  ");
+    _builder.append("delay(10);");
+    _builder.newLine();
+    _builder.append("\t  ");
+    _builder.append("// We start by connecting to a WiFi network");
+    _builder.newLine();
+    _builder.append("\t  ");
+    _builder.append("Serial.println();");
+    _builder.newLine();
+    _builder.append("\t  ");
+    _builder.append("Serial.print(\"Connecting to \");");
+    _builder.newLine();
+    _builder.append("\t  ");
+    _builder.append("Serial.println(ssid);");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t  ");
+    _builder.append("WiFi.begin(ssid, password);");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t  ");
+    _builder.append("while (WiFi.status() != WL_CONNECTED) {");
+    _builder.newLine();
+    _builder.append("\t    ");
+    _builder.append("delay(500);");
+    _builder.newLine();
+    _builder.append("\t    ");
+    _builder.append("Serial.print(\".\");");
+    _builder.newLine();
+    _builder.append("\t  ");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t  ");
+    _builder.append("Serial.println(\"\");");
+    _builder.newLine();
+    _builder.append("\t  ");
+    _builder.append("Serial.println(\"WiFi connected\");");
+    _builder.newLine();
+    _builder.append("\t  ");
+    _builder.append("Serial.println(\"IP address: \");");
+    _builder.newLine();
+    _builder.append("\t  ");
+    _builder.append("Serial.println(WiFi.localIP());");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("void callback(char* topic, byte* message, unsigned int length) {");
+    _builder.newLine();
+    _builder.append("\t  ");
+    _builder.append("Serial.print(\"Message arrived on topic: \");");
+    _builder.newLine();
+    _builder.append("\t  ");
+    _builder.append("Serial.print(topic);");
+    _builder.newLine();
+    _builder.append("\t  ");
+    _builder.append("Serial.print(\". Message: \");");
+    _builder.newLine();
+    _builder.append("\t  ");
+    _builder.append("String messageTemp;");
+    _builder.newLine();
+    _builder.append("\t  ");
+    _builder.newLine();
+    _builder.append("\t  ");
+    _builder.append("for (int i = 0; i < length; i++) {");
+    _builder.newLine();
+    _builder.append("\t    ");
+    _builder.append("Serial.print((char)message[i]);");
+    _builder.newLine();
+    _builder.append("\t    ");
+    _builder.append("messageTemp += (char)message[i];");
+    _builder.newLine();
+    _builder.append("\t  ");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t  ");
+    _builder.append("Serial.println();");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("void reconnect() {");
+    _builder.newLine();
+    _builder.append("\t  ");
+    _builder.append("// Loop until we\'re reconnected");
+    _builder.newLine();
+    _builder.append("\t  ");
+    _builder.append("while (!client.connected()) {");
+    _builder.newLine();
+    _builder.append("\t    ");
+    _builder.append("Serial.print(\"Attempting MQTT connection...\");");
+    _builder.newLine();
+    _builder.append("\t    ");
+    _builder.append("// Attempt to connect");
+    _builder.newLine();
+    _builder.append("\t    ");
+    _builder.append("if (client.connect(\"ESP8266Client\")) {");
+    _builder.newLine();
+    _builder.append("\t      ");
+    _builder.append("Serial.println(\"connected\");");
+    _builder.newLine();
+    _builder.append("\t      ");
+    _builder.append("// Subscribe");
+    _builder.newLine();
+    _builder.append("\t      ");
+    _builder.append("client.subscribe(\"esp32/output\");");
+    _builder.newLine();
+    _builder.append("\t    ");
+    _builder.append("} else {");
+    _builder.newLine();
+    _builder.append("\t      ");
+    _builder.append("Serial.print(\"failed, rc=\");");
+    _builder.newLine();
+    _builder.append("\t      ");
+    _builder.append("Serial.print(client.state());");
+    _builder.newLine();
+    _builder.append("\t      ");
+    _builder.append("Serial.println(\" try again in 5 seconds\");");
+    _builder.newLine();
+    _builder.append("\t      ");
+    _builder.append("// Wait 5 seconds before retrying");
+    _builder.newLine();
+    _builder.append("\t      ");
+    _builder.append("delay(5000);");
+    _builder.newLine();
+    _builder.append("\t    ");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t  ");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("void loop() {");
+    _builder.newLine();
+    _builder.append("\t  ");
+    _builder.append("if (!client.connected()) {");
+    _builder.newLine();
+    _builder.append("\t    ");
+    _builder.append("reconnect();");
+    _builder.newLine();
+    _builder.append("\t  ");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t  ");
+    _builder.append("client.loop();");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t  ");
+    _builder.append("long now = millis();");
+    _builder.newLine();
+    _builder.append("\t  ");
+    _builder.append("if (now - lastMsg > 1000) {");
+    _builder.newLine();
+    _builder.append("\t    ");
+    _builder.append("lastMsg = now;");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t\t");
+    {
+      EList<Sensor> _sensors_4 = m.getSensors();
+      boolean _hasElements_5 = false;
+      for(final Sensor s_4 : _sensors_4) {
+        if (!_hasElements_5) {
+          _hasElements_5 = true;
+        } else {
+          _builder.appendImmediate("\n", "\t\t");
+        }
+        String _name_5 = s_4.getName();
+        _builder.append(_name_5, "\t\t");
+        _builder.append("Value = analogRead(");
+        String _name_6 = s_4.getName();
+        _builder.append(_name_6, "\t\t");
+        _builder.append("Pin);");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    _builder.append("   ");
+    _builder.append("// Convert the value to a char array");
+    _builder.newLine();
+    {
+      EList<Sensor> _sensors_5 = m.getSensors();
+      boolean _hasElements_6 = false;
+      for(final Sensor s_5 : _sensors_5) {
+        if (!_hasElements_6) {
+          _hasElements_6 = true;
+        } else {
+          _builder.appendImmediate("\n", "   ");
+        }
+        _builder.append("   ");
+        _builder.append("char ");
+        String _name_7 = s_5.getName();
+        _builder.append(_name_7, "   ");
+        _builder.append("String[8];");
+        _builder.newLineIfNotEmpty();
+        _builder.append("   ");
+        _builder.append("dtostrf(");
+        String _name_8 = s_5.getName();
+        _builder.append(_name_8, "   ");
+        _builder.append("Value, 1, 2, ");
+        String _name_9 = s_5.getName();
+        _builder.append(_name_9, "   ");
+        _builder.append("String);");
+        _builder.newLineIfNotEmpty();
+        _builder.append("   ");
+        _builder.append("Serial.print(\"Value: \");");
+        _builder.newLine();
+        _builder.append("   ");
+        _builder.append("Serial.println(");
+        String _name_10 = s_5.getName();
+        _builder.append(_name_10, "   ");
+        _builder.append("String);");
+        _builder.newLineIfNotEmpty();
+        _builder.append("   ");
+        _builder.append("client.publish(\"esp32/");
+        String _name_11 = s_5.getName();
+        _builder.append(_name_11, "   ");
+        _builder.append("\", ");
+        String _name_12 = s_5.getName();
+        _builder.append(_name_12, "   ");
+        _builder.append("String);");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("\t\t");
+    _builder.newLine();
+    {
+      EList<Sensor> _sensors_6 = m.getSensors();
+      boolean _hasElements_7 = false;
+      for(final Sensor s_6 : _sensors_6) {
+        if (!_hasElements_7) {
+          _hasElements_7 = true;
+        } else {
+          _builder.appendImmediate("\n", "");
+        }
+        String _name_13 = s_6.getName();
+        _builder.append(_name_13);
+        _builder.append("PrintString = ");
+        String _name_14 = s_6.getName();
+        _builder.append(_name_14);
+        _builder.append("String + ");
+        String _name_15 = s_6.getName();
+        _builder.append(_name_15);
+        _builder.append("Value;");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("\t    ");
+    _builder.newLine();
+    _builder.append("\t    ");
+    _builder.append("Display(");
+    {
+      EList<Sensor> _sensors_7 = m.getSensors();
+      boolean _hasElements_8 = false;
+      for(final Sensor s_7 : _sensors_7) {
+        if (!_hasElements_8) {
+          _hasElements_8 = true;
+        } else {
+          _builder.appendImmediate(", ", "\t    ");
+        }
+        String _name_16 = s_7.getName();
+        _builder.append(_name_16, "\t    ");
+        _builder.append("PrintString");
+      }
+    }
+    _builder.append(");");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t  ");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("void Display(");
+    {
+      EList<Sensor> _sensors_8 = m.getSensors();
+      boolean _hasElements_9 = false;
+      for(final Sensor s_8 : _sensors_8) {
+        if (!_hasElements_9) {
+          _hasElements_9 = true;
+        } else {
+          _builder.appendImmediate(", ", "\t");
+        }
+        _builder.append("String ");
+        String _name_17 = s_8.getName();
+        _builder.append(_name_17, "\t");
+        _builder.append("PrintString");
+      }
+    }
+    _builder.append(") {");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t  ");
+    _builder.append("u8g2.clear();");
+    _builder.newLine();
+    _builder.append("\t  ");
+    _builder.append("u8g2.clearDisplay();");
+    _builder.newLine();
+    _builder.append("\t  ");
+    _builder.append("u8g2.clearBuffer();                   // clear the internal memory");
+    _builder.newLine();
+    _builder.append("\t");
+    int i = 10;
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    {
+      EList<Sensor> _sensors_9 = m.getSensors();
+      for(final Sensor s_9 : _sensors_9) {
+        _builder.append("u8g2.setCursor(0, ");
+        _builder.append(i, "\t");
+        _builder.append(")");
+        String _xblockexpression = null;
+        {
+          int _i = i;
+          i = (_i + 30);
+          _xblockexpression = "";
+        }
+        _builder.append(_xblockexpression, "\t");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        _builder.append("\t");
+        _builder.append("u8g2.print(");
+        String _name_18 = s_9.getName();
+        _builder.append(_name_18, "\t\t");
+        _builder.append("PrintString);");
         _builder.newLineIfNotEmpty();
       }
     }
     _builder.newLine();
-    _builder.append("void setup() {");
+    _builder.append("\t  ");
+    _builder.append("u8g2.sendBuffer();                  // transfer internal memory to the display");
     _builder.newLine();
-    _builder.append("\t");
+    _builder.append("\t  ");
+    _builder.append("delay(1000);");
     _builder.newLine();
+    _builder.append("\t  ");
     _builder.append("}");
-    _builder.newLine();
-    _builder.append("void loop() {");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.newLine();
-    _builder.append("}");
-    _builder.newLine();
     _builder.newLine();
     _builder.newLine();
     return _builder;
+  }
+  
+  public String generateCredentials(final Credentials c) {
+    String _switchResult = null;
+    boolean _matched = false;
+    if (c instanceof Password) {
+      _matched=true;
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("const char* password = ");
+      String _name = ((Password)c).getName();
+      _builder.append(_name);
+      _switchResult = _builder.toString();
+    }
+    if (!_matched) {
+      if (c instanceof SSID) {
+        _matched=true;
+        StringConcatenation _builder = new StringConcatenation();
+        _builder.append("const char* ssid = ");
+        String _name = ((SSID)c).getName();
+        _builder.append(_name);
+        _switchResult = _builder.toString();
+      }
+    }
+    if (!_matched) {
+      if (c instanceof IP) {
+        _matched=true;
+        StringConcatenation _builder = new StringConcatenation();
+        _builder.append("const char* mqtt_server = ");
+        String _name = ((IP)c).getName();
+        _builder.append(_name);
+        _switchResult = _builder.toString();
+      }
+    }
+    return _switchResult;
   }
 }

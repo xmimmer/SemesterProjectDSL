@@ -22,6 +22,7 @@ import org.xtext.example.mydsl.semester_Project_Dsl.Sensor;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.semester_Project_Dsl.impl.SensorImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.semester_Project_Dsl.impl.SensorImpl#getPin <em>Pin</em>}</li>
  * </ul>
  *
  * @generated
@@ -47,6 +48,26 @@ public class SensorImpl extends MinimalEObjectImpl.Container implements Sensor
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getPin() <em>Pin</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPin()
+   * @generated
+   * @ordered
+   */
+  protected static final int PIN_EDEFAULT = 0;
+
+  /**
+   * The cached value of the '{@link #getPin() <em>Pin</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPin()
+   * @generated
+   * @ordered
+   */
+  protected int pin = PIN_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -100,12 +121,39 @@ public class SensorImpl extends MinimalEObjectImpl.Container implements Sensor
    * @generated
    */
   @Override
+  public int getPin()
+  {
+    return pin;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setPin(int newPin)
+  {
+    int oldPin = pin;
+    pin = newPin;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, Semester_Project_DslPackage.SENSOR__PIN, oldPin, pin));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
     {
       case Semester_Project_DslPackage.SENSOR__NAME:
         return getName();
+      case Semester_Project_DslPackage.SENSOR__PIN:
+        return getPin();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -122,6 +170,9 @@ public class SensorImpl extends MinimalEObjectImpl.Container implements Sensor
     {
       case Semester_Project_DslPackage.SENSOR__NAME:
         setName((String)newValue);
+        return;
+      case Semester_Project_DslPackage.SENSOR__PIN:
+        setPin((Integer)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -140,6 +191,9 @@ public class SensorImpl extends MinimalEObjectImpl.Container implements Sensor
       case Semester_Project_DslPackage.SENSOR__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case Semester_Project_DslPackage.SENSOR__PIN:
+        setPin(PIN_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -156,6 +210,8 @@ public class SensorImpl extends MinimalEObjectImpl.Container implements Sensor
     {
       case Semester_Project_DslPackage.SENSOR__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case Semester_Project_DslPackage.SENSOR__PIN:
+        return pin != PIN_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }
@@ -173,6 +229,8 @@ public class SensorImpl extends MinimalEObjectImpl.Container implements Sensor
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (name: ");
     result.append(name);
+    result.append(", pin: ");
+    result.append(pin);
     result.append(')');
     return result.toString();
   }

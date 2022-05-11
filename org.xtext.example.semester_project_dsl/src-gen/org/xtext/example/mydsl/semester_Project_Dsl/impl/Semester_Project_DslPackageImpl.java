@@ -10,7 +10,9 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import org.xtext.example.mydsl.semester_Project_Dsl.Credentials;
 import org.xtext.example.mydsl.semester_Project_Dsl.Model;
+import org.xtext.example.mydsl.semester_Project_Dsl.Password;
 import org.xtext.example.mydsl.semester_Project_Dsl.Semester_Project_DslFactory;
 import org.xtext.example.mydsl.semester_Project_Dsl.Semester_Project_DslPackage;
 import org.xtext.example.mydsl.semester_Project_Dsl.Sensor;
@@ -44,6 +46,34 @@ public class Semester_Project_DslPackageImpl extends EPackageImpl implements Sem
    * @generated
    */
   private EClass sensorEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass credentialsEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass ssidEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass passwordEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass ipEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -158,6 +188,17 @@ public class Semester_Project_DslPackageImpl extends EPackageImpl implements Sem
    * @generated
    */
   @Override
+  public EReference getModel_Credentials()
+  {
+    return (EReference)modelEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getVariable()
   {
     return variableEClass;
@@ -202,6 +243,72 @@ public class Semester_Project_DslPackageImpl extends EPackageImpl implements Sem
    * @generated
    */
   @Override
+  public EAttribute getSensor_Pin()
+  {
+    return (EAttribute)sensorEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getCredentials()
+  {
+    return credentialsEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getCredentials_Name()
+  {
+    return (EAttribute)credentialsEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getSSID()
+  {
+    return ssidEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getPassword()
+  {
+    return passwordEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getIP()
+  {
+    return ipEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Semester_Project_DslFactory getSemester_Project_DslFactory()
   {
     return (Semester_Project_DslFactory)getEFactoryInstance();
@@ -231,12 +338,23 @@ public class Semester_Project_DslPackageImpl extends EPackageImpl implements Sem
     createEAttribute(modelEClass, MODEL__NAME);
     createEReference(modelEClass, MODEL__VARIABLES);
     createEReference(modelEClass, MODEL__SENSORS);
+    createEReference(modelEClass, MODEL__CREDENTIALS);
 
     variableEClass = createEClass(VARIABLE);
     createEAttribute(variableEClass, VARIABLE__NAME);
 
     sensorEClass = createEClass(SENSOR);
     createEAttribute(sensorEClass, SENSOR__NAME);
+    createEAttribute(sensorEClass, SENSOR__PIN);
+
+    credentialsEClass = createEClass(CREDENTIALS);
+    createEAttribute(credentialsEClass, CREDENTIALS__NAME);
+
+    ssidEClass = createEClass(SSID);
+
+    passwordEClass = createEClass(PASSWORD);
+
+    ipEClass = createEClass(IP);
   }
 
   /**
@@ -268,18 +386,32 @@ public class Semester_Project_DslPackageImpl extends EPackageImpl implements Sem
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    ssidEClass.getESuperTypes().add(this.getCredentials());
+    passwordEClass.getESuperTypes().add(this.getCredentials());
+    ipEClass.getESuperTypes().add(this.getCredentials());
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getModel_Name(), ecorePackage.getEString(), "name", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModel_Variables(), this.getVariable(), null, "variables", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModel_Sensors(), this.getSensor(), null, "sensors", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModel_Credentials(), this.getCredentials(), null, "credentials", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(variableEClass, Variable.class, "Variable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getVariable_Name(), ecorePackage.getEString(), "name", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(sensorEClass, Sensor.class, "Sensor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getSensor_Name(), ecorePackage.getEString(), "name", null, 0, 1, Sensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSensor_Pin(), ecorePackage.getEInt(), "pin", null, 0, 1, Sensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(credentialsEClass, Credentials.class, "Credentials", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getCredentials_Name(), ecorePackage.getEString(), "name", null, 0, 1, Credentials.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(ssidEClass, org.xtext.example.mydsl.semester_Project_Dsl.SSID.class, "SSID", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(passwordEClass, Password.class, "Password", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(ipEClass, org.xtext.example.mydsl.semester_Project_Dsl.IP.class, "IP", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     // Create resource
     createResource(eNS_URI);

@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.xtext.example.mydsl.semester_Project_Dsl.Model#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.semester_Project_Dsl.Model#getVariables <em>Variables</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.semester_Project_Dsl.Model#getSensors <em>Sensors</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.semester_Project_Dsl.Model#getCredentials <em>Credentials</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.mydsl.semester_Project_Dsl.Semester_Project_DslPackage#getModel()
@@ -72,5 +73,17 @@ public interface Model extends EObject
    * @generated
    */
   EList<Sensor> getSensors();
+
+  /**
+   * Returns the value of the '<em><b>Credentials</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.example.mydsl.semester_Project_Dsl.Credentials}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Credentials</em>' containment reference list.
+   * @see org.xtext.example.mydsl.semester_Project_Dsl.Semester_Project_DslPackage#getModel_Credentials()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Credentials> getCredentials();
 
 } // Model

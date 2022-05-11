@@ -31,17 +31,23 @@ public class Semester_Project_DslParser extends AbstractContentAssistParser {
 		}
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, Semester_Project_DslGrammarAccess grammarAccess) {
-			builder.put(grammarAccess.getSensorAccess().getAlternatives(), "rule__Sensor__Alternatives");
+			builder.put(grammarAccess.getCredentialsAccess().getAlternatives(), "rule__Credentials__Alternatives");
 			builder.put(grammarAccess.getModelAccess().getGroup(), "rule__Model__Group__0");
 			builder.put(grammarAccess.getVariableAccess().getGroup(), "rule__Variable__Group__0");
-			builder.put(grammarAccess.getSensorAccess().getGroup_0(), "rule__Sensor__Group_0__0");
-			builder.put(grammarAccess.getSensorAccess().getGroup_1(), "rule__Sensor__Group_1__0");
+			builder.put(grammarAccess.getSensorAccess().getGroup(), "rule__Sensor__Group__0");
+			builder.put(grammarAccess.getSSIDAccess().getGroup(), "rule__SSID__Group__0");
+			builder.put(grammarAccess.getPasswordAccess().getGroup(), "rule__Password__Group__0");
+			builder.put(grammarAccess.getIPAccess().getGroup(), "rule__IP__Group__0");
 			builder.put(grammarAccess.getModelAccess().getNameAssignment_1(), "rule__Model__NameAssignment_1");
 			builder.put(grammarAccess.getModelAccess().getVariablesAssignment_2(), "rule__Model__VariablesAssignment_2");
 			builder.put(grammarAccess.getModelAccess().getSensorsAssignment_3(), "rule__Model__SensorsAssignment_3");
+			builder.put(grammarAccess.getModelAccess().getCredentialsAssignment_4(), "rule__Model__CredentialsAssignment_4");
 			builder.put(grammarAccess.getVariableAccess().getNameAssignment_1(), "rule__Variable__NameAssignment_1");
-			builder.put(grammarAccess.getSensorAccess().getNameAssignment_0_1(), "rule__Sensor__NameAssignment_0_1");
-			builder.put(grammarAccess.getSensorAccess().getNameAssignment_1_1(), "rule__Sensor__NameAssignment_1_1");
+			builder.put(grammarAccess.getSensorAccess().getNameAssignment_1(), "rule__Sensor__NameAssignment_1");
+			builder.put(grammarAccess.getSensorAccess().getPinAssignment_3(), "rule__Sensor__PinAssignment_3");
+			builder.put(grammarAccess.getSSIDAccess().getNameAssignment_1(), "rule__SSID__NameAssignment_1");
+			builder.put(grammarAccess.getPasswordAccess().getNameAssignment_1(), "rule__Password__NameAssignment_1");
+			builder.put(grammarAccess.getIPAccess().getNameAssignment_1(), "rule__IP__NameAssignment_1");
 		}
 	}
 	

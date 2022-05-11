@@ -91,6 +91,26 @@ public class Semester_Project_DslAdapterFactory extends AdapterFactoryImpl
         return createSensorAdapter();
       }
       @Override
+      public Adapter caseCredentials(Credentials object)
+      {
+        return createCredentialsAdapter();
+      }
+      @Override
+      public Adapter caseSSID(SSID object)
+      {
+        return createSSIDAdapter();
+      }
+      @Override
+      public Adapter casePassword(Password object)
+      {
+        return createPasswordAdapter();
+      }
+      @Override
+      public Adapter caseIP(IP object)
+      {
+        return createIPAdapter();
+      }
+      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -153,6 +173,66 @@ public class Semester_Project_DslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createSensorAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.semester_Project_Dsl.Credentials <em>Credentials</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.semester_Project_Dsl.Credentials
+   * @generated
+   */
+  public Adapter createCredentialsAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.semester_Project_Dsl.SSID <em>SSID</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.semester_Project_Dsl.SSID
+   * @generated
+   */
+  public Adapter createSSIDAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.semester_Project_Dsl.Password <em>Password</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.semester_Project_Dsl.Password
+   * @generated
+   */
+  public Adapter createPasswordAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.semester_Project_Dsl.IP <em>IP</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.semester_Project_Dsl.IP
+   * @generated
+   */
+  public Adapter createIPAdapter()
   {
     return null;
   }
